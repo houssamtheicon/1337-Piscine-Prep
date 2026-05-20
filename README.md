@@ -38,23 +38,6 @@ An unofficial, community-driven preparation hub for the **42 / 1337 Piscine** �
 - **Express.js** — local dev server only
 - **Vercel** — deployment (static hosting with clean URLs)
 
-## Getting Started
-
-```bash
-git clone https://github.com/houssamtheicon/1337-Piscine-Prep.git
-cd 1337-Piscine-Prep
-npm install
-npm start
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Deployment
-
-The site is fully static and deploys seamlessly on **Vercel**:
-
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/houssamtheicon/1337-Piscine-Prep)
-
 ## Contributing
 
 Contributions are welcome! If you have exercise solutions, additional resources, corrections, or improvements — feel free to open an issue or submit a pull request.
