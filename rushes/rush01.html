@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rush 01 — 1337 Piscine Prep</title>
+  <meta name="description" content="Rush 01 weekend group project for 1337 Piscine: constraint satisfaction, backtracking, and 2D array logic.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/" class="active">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/rushes/">Rushes</a>
+        <span class="sep">/</span>
+        <span>Rush 01</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Rush 01</h1>
+        <p>A logic puzzle and constraint satisfaction problem typically assigned during week 2. Requires backtracking, 2D array manipulation, and recursive thinking.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Overview</h2>
+        <p>Rush 01 presents a grid-based logic puzzle where you must place numbers satisfying visibility or sum constraints from each row and column. The problem demands a systematic search through possible configurations using backtracking. Unlike Rush 00, this project has no single correct layout — the solution must be found through constraint propagation and search.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Key Concepts</h2>
+        <div class="concept-list">
+          <span class="tag tag-accent">Backtracking</span>
+          <span class="tag tag-accent">Constraint Checking</span>
+          <span class="tag tag-accent">2D Arrays</span>
+          <span class="tag tag-accent">Recursion</span>
+          <span class="tag tag-accent">Validation Functions</span>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Approach Discussion</h2>
+        <p>The standard approach uses recursion with backtracking. Start by parsing the input to extract row and column constraints. Then recursively attempt to fill the grid cell by cell, checking constraints after each placement. If a constraint is violated, backtrack by removing the last placement and trying the next value.</p>
+        <p>Split work effectively: one partner implements the constraint checking functions while the other builds the recursive backtracking engine. Write small, testable functions for row validation and column validation independently before integrating.</p>
+        <div class="callout callout-info">
+          <p><strong>Tip:</strong> Use a helper function to check if a partial solution can still lead to a valid complete solution. This prunes the search space significantly and prevents infinite recursion.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Testing Strategies</h2>
+        <div class="card">
+          <ul>
+            <li>Test with the smallest valid grid (e.g., 4x4) before scaling up</li>
+            <li>Verify constraint checking functions in isolation with known inputs</li>
+            <li>Test with impossible configurations to confirm your program detects unsolvable cases</li>
+            <li>Use <code>printf</code> debugging to trace the backtracking steps</li>
+            <li>Compare output against known solutions for standard puzzle configurations</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li>Row and column validation errors — ensure you check both dimensions independently and correctly</li>
+          <li>Duplicate detection — failing to detect duplicate numbers in a row or column leads to invalid solutions</li>
+          <li>Recursion termination — missing base cases cause stack overflow or infinite loops</li>
+          <li>Incorrect constraint parsing — misinterpreting input format leads to wrong constraints from the start</li>
+          <li>Not backtracking fully — partial reset of state when backtracking corrupts the search</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

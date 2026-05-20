@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell Modules — 1337 Piscine Prep</title>
+  <meta name="description" content="Shell 00 and Shell 01 modules for 1337 Piscine: Unix basics, navigation, file operations, permissions, and shell scripting.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/" class="active">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Shell</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Shell Modules</h1>
+        <p>Shell 00 and Shell 01 are the first modules you will tackle in the Piscine. They introduce the Unix command line — navigation, file operations, permissions, and shell scripting. Mastering these early gives you a strong foundation for the C modules and exams ahead.</p>
+      </section>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Module Overview</h2>
+        <div class="card-grid">
+          <a href="/shell/shell00.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Shell 00</h3>
+            <p>Unix fundamentals: navigation, file operations, permissions, redirections, pipes, and wildcards.</p>
+            <div class="card-meta"><span class="tag">Week 1</span><span class="tag tag-accent">Foundation</span></div>
+          </a>
+          <a href="/shell/shell01.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Shell 01</h3>
+            <p>Shell scripting: variables, conditionals, loops, functions, environment manipulation, and permissions.</p>
+            <div class="card-meta"><span class="tag">Week 1</span><span class="tag tag-accent">Foundation</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Why Shell Matters</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Daily Tool</h3>
+            <p>You will use the terminal every single day of the Piscine — compiling, submitting, navigating, and debugging. Shell fluency saves hours of frustration.</p>
+          </div>
+          <div class="card">
+            <h3>Exam Foundation</h3>
+            <p>Exam exercises often require shell commands for file manipulation, permission changes, and script writing. Shell knowledge directly impacts your exam performance.</p>
+          </div>
+          <div class="card">
+            <h3>Norm & Git</h3>
+            <p>Checking Norminette, pushing with Git, and managing files all happen through the shell. Understanding the command line is non-negotiable from day one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Quick Reference — Common Shell Commands</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>ls</code></td><td>List directory contents</td><td><code>ls -la</code></td></tr>
+              <tr><td><code>cd</code></td><td>Change directory</td><td><code>cd /path/to/dir</code></td></tr>
+              <tr><td><code>cp</code></td><td>Copy files or directories</td><td><code>cp src.txt dst.txt</code></td></tr>
+              <tr><td><code>mv</code></td><td>Move or rename files</td><td><code>mv old.txt new.txt</code></td></tr>
+              <tr><td><code>rm</code></td><td>Remove files or directories</td><td><code>rm -rf dir/</code></td></tr>
+              <tr><td><code>chmod</code></td><td>Change file permissions</td><td><code>chmod 755 script.sh</code></td></tr>
+              <tr><td><code>find</code></td><td>Search for files</td><td><code>find . -name "*.c"</code></td></tr>
+              <tr><td><code>grep</code></td><td>Search inside files</td><td><code>grep "main" file.c</code></td></tr>
+              <tr><td><code>cat</code></td><td>Concatenate and display files</td><td><code>cat file.txt</code></td></tr>
+              <tr><td><code>echo</code></td><td>Print text to stdout</td><td><code>echo "Hello"</code></td></tr>
+              <tr><td><code>env</code></td><td>Display environment variables</td><td><code>env | grep PATH</code></td></tr>
+              <tr><td><code>export</code></td><td>Set environment variable</td><td><code>export VAR=value</code></td></tr>
+              <tr><td><code>touch</code></td><td>Create empty file or update timestamp</td><td><code>touch newfile</code></td></tr>
+              <tr><td><code>mkdir</code></td><td>Create directory</td><td><code>mkdir -p a/b/c</code></td></tr>
+              <tr><td><code>head</code></td><td>Display first lines of a file</td><td><code>head -n 20 file</code></td></tr>
+              <tr><td><code>tail</code></td><td>Display last lines of a file</td><td><code>tail -f log</code></td></tr>
+              <tr><td><code>wc</code></td><td>Count lines, words, bytes</td><td><code>wc -l file.c</code></td></tr>
+              <tr><td><code>sort</code></td><td>Sort lines of text</td><td><code>sort file.txt</code></td></tr>
+              <tr><td><code>uniq</code></td><td>Filter repeated lines</td><td><code>sort f | uniq</code></td></tr>
+              <tr><td><code>diff</code></td><td>Compare files line by line</td><td><code>diff a.txt b.txt</code></td></tr>
+              <tr><td><code>patch</code></td><td>Apply a diff to a file</td><td><code>patch < file.diff</code></td></tr>
+              <tr><td><code>tar</code></td><td>Archive files</td><td><code>tar -czf archive.tar.gz dir/</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

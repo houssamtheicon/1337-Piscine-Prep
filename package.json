@@ -1,0 +1,13 @@
+{
+  "name": "1337-piscine-prep",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial 1337 Piscine preparation platform with coding workspace",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

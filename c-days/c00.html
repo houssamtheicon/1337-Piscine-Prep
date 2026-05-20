@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C00 — Introduction to C | C Days — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/c-days/">C Days</a>
+        <span class="sep">/</span>
+        <span>C00</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C00 — Introduction to C</h1>
+      </div>
+
+      <section class="module-section">
+        <p>C00 is your first contact with C programming. You will learn how to write functions, use loops and conditionals, and display output using <code>ft_putchar</code>. By the end of this module you will be comfortable with basic control flow and function creation.</p>
+
+        <h2>Concepts</h2>
+        <div class="concept-list">
+          <span class="tag">ft_putchar</span>
+          <span class="tag">Loops</span>
+          <span class="tag">Conditions</span>
+          <span class="tag">Functions</span>
+          <span class="tag">Basic I/O</span>
+        </div>
+
+        <h2>Exercises</h2>
+
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/0 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c00')" style="margin-bottom:1rem;">Reset progress</button>
+
+        <ul class="exercise-list">
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex00: ft_putchar</span><br>
+              <span class="ex-desc">Write a function that displays a character</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex01: ft_print_alphabet</span><br>
+              <span class="ex-desc">Display the alphabet in lowercase</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex02: ft_print_reverse_alphabet</span><br>
+              <span class="ex-desc">Display the alphabet in reverse</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex03: ft_print_numbers</span><br>
+              <span class="ex-desc">Display digits 0 through 9</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex04: ft_is_negative</span><br>
+              <span class="ex-desc">Display N or P based on integer sign</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex05: ft_print_comb</span><br>
+              <span class="ex-desc">Display all combinations of three digits</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex06: ft_print_comb2</span><br>
+              <span class="ex-desc">Display all combinations of two two-digit numbers</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex07: ft_putnbr</span><br>
+              <span class="ex-desc">Display an integer</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex08: ft_print_combn</span><br>
+              <span class="ex-desc">Display all combinations of n digits</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Compile &amp; Test</h2>
+        <pre><code># Compile all exercises
+cc -Wall -Wextra -Werror ex00/ft_putchar.c -o test_putchar
+
+# Test with a main
+echo 'int main(void){ft_putchar("H");return 0;}' > main.c \
+  && cc -Wall -Wextra -Werror main.c ex00/ft_putchar.c -o test \
+  && ./test</code></pre>
+
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Off-by-one in loops:</strong> Remember C arrays are 0-indexed. A loop iterating through 26 letters should go from 0 to 25, not 1 to 26.</li>
+          <li><strong>putchar vs printf:</strong> The subject requires <code>ft_putchar</code> (which uses <code>write</code>), not <code>printf</code>. Using <code>printf</code> will get you a -42.</li>
+          <li><strong>Infinite loops:</strong> Make sure your <code>while</code> or <code>for</code> loop condition eventually becomes false. Test with small ranges first.</li>
+          <li><strong>char vs int:</strong> Characters are small integers. <code>'0'</code> is not the same as <code>0</code> — their ASCII values differ by 48.</li>
+        </ul>
+
+        <h2>Peer-Eval Reminders</h2>
+        <div class="callout callout-warning">
+          <p><strong>Check these during evaluation:</strong> Does the code compile with <code>-Wall -Wextra -Werror</code>? Is the Norm respected (no more than 25 lines per function, proper indentation)? Does ft_putchar use <code>write(1, &c, 1)</code>? Are functions tested with edge cases (max/min int, negative numbers, empty input)?</p>
+        </div>
+
+        <h2>Practice for Exams</h2>
+        <ul>
+          <li><a href="/exams/">Exam 00</a> — basic C functions similar to C00 exercises</li>
+          <li><a href="/exams/">Exam 01</a> — printing and loops under time pressure</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c00',9);});</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources &amp; Tools — 1337 Piscine Prep</title>
+  <meta name="description" content="Essential guides and references for 1337 Piscine: Norminette rules, Git workflow, GCC compilation, debugging tools, and peer evaluation.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span>Resources</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Resources &amp; Tools</h1>
+        <p>Essential guides and references for surviving the Piscine. From Norm compliance to debugging crashes, these resources cover the practical skills every Pisciner needs.</p>
+      </div>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Guides</h2>
+        <div class="card-grid">
+          <a href="/resources/norm.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Norminette</h3>
+            <p>42 Norm rules, checklist, and common violations. Understand the coding standard that all your projects must pass.</p>
+            <div class="card-meta"><span class="tag">Reference</span><span class="tag tag-accent">Required</span></div>
+          </a>
+          <a href="/resources/git.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Git Guide</h3>
+            <p>Git workflow, essential commands, and how submission works during the Piscine. Avoid common version control mistakes.</p>
+            <div class="card-meta"><span class="tag">Workflow</span><span class="tag tag-accent">Required</span></div>
+          </a>
+          <a href="/resources/gcc.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>GCC Compilation</h3>
+            <p>Compilation flags, warnings, debugging symbols, and sanitizers. Learn to compile and debug C programs effectively.</p>
+            <div class="card-meta"><span class="tag">Reference</span><span class="tag tag-accent">Tool</span></div>
+          </a>
+          <a href="/resources/debugging.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Debugging</h3>
+            <p>GDB, Valgrind, address sanitizer, and common debugging techniques for segfaults, leaks, and crashes.</p>
+            <div class="card-meta"><span class="tag">Technique</span><span class="tag tag-warning">Troubleshooting</span></div>
+          </a>
+          <a href="/resources/peer-eval.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Peer Evaluation</h3>
+            <p>How to evaluate and get evaluated. What to look for, common questions, and defense tips for successful peer reviews.</p>
+            <div class="card-meta"><span class="tag">Process</span><span class="tag tag-success">Mandatory</span></div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell 01 — Scripting & Environment — 1337 Piscine Prep</title>
+  <meta name="description" content="Shell 01 module: shell scripting, variables, conditionals, loops, functions, and environment manipulation for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/" class="active">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/shell/">Shell</a></li>
+          <li><span aria-current="page">Shell 01</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Shell 01 — Scripting & Environment</h1>
+        <p>Shell 01 builds on Shell 00 by introducing shell scripting. You will work with variables, conditionals, loops, functions, and environment manipulation. These exercises teach you to automate tasks and write reusable shell programs — a crucial skill for the Piscine and beyond.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="tag-group">
+          <span class="tag">Variables</span>
+          <span class="tag">Conditionals</span>
+          <span class="tag">Loops</span>
+          <span class="tag">Functions</span>
+          <span class="tag">Environment</span>
+          <span class="tag">Scripting</span>
+          <span class="tag">Permissions</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/8 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('shell01')" style="margin-bottom:1rem;">Reset progress</button>
+        <ol class="exercise-list">
+          <li><div><span class="ex-name">ex01: print_groups</span><br><span class="ex-desc">Write a script that displays the groups of a given user</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex02: find_sh</span><br><span class="ex-desc">Find all .sh files and display only their names without extension</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex03: count_files</span><br><span class="ex-desc">Count all files and directories including hidden ones</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex04: MAC</span><br><span class="ex-desc">Display the machine's MAC addresses</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex05: Can you create it?</span><br><span class="ex-desc">Create a file with specific content using environment variables</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex06: Skip</span><br><span class="ex-desc">Display specific lines from a file or command output</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex07: r_dwssap</span><br><span class="ex-desc">Process command output and display specific fields</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex08: add_chelou</span><br><span class="ex-desc">Perform complex arithmetic or string manipulation</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+        </ol>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul>
+          <li><strong>Syntax errors:</strong> Spaces around <code>=</code> in variable assignments (<code>VAR=value</code> is correct, <code>VAR = value</code> is not). A single wrong space breaks the script.</li>
+          <li><strong>Shebang:</strong> Every script must start with <code>#!/bin/bash</code> (or <code>#!/bin/sh</code>). Without it, the script may not execute properly.</li>
+          <li><strong>Permissions:</strong> Scripts need execute permission (<code>chmod +x script.sh</code>). The exercices expect you to set the correct permissions.</li>
+          <li><strong>Environment vs local variables:</strong> Use <code>export</code> to make a variable available to child processes. Local variables (without export) are not inherited.</li>
+          <li><strong>Command substitution:</strong> Use <code>$(command)</code> or backticks. The modern <code>$()</code> syntax is preferred and nests better.</li>
+          <li><strong>Quoting:</strong> Always quote variables (<code>"$VAR"</code>) to prevent word splitting and glob expansion. Unquoted variables cause subtle bugs.</li>
+          <li><strong>Exit codes:</strong> Every command returns an exit code (<code>0</code> for success). Use <code>$?</code> to check the last exit code in conditionals.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Shell 00</h3>
+            <p>Review Unix basics: navigation, file operations, permissions, pipes, and wildcards.</p>
+            <a href="/shell/shell00.html" class="btn btn-sm btn-outline">View Module</a>
+          </div>
+          <div class="card">
+            <h3>Exam 00 Prep</h3>
+            <p>Shell scripting exercises appear in exams. Practice writing scripts under time constraints.</p>
+            <a href="/exams/exam00.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>Resources</h3>
+            <p>Cheatsheets for shell scripting, command references, and Git guides.</p>
+            <a href="/resources/" class="btn btn-sm btn-outline">Browse Resources</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('shell01',8);});</script>
+</body>
+</html>

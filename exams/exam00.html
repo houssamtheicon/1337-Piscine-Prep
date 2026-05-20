@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam 00 — First Machine Exam — 1337 Piscine Prep</title>
+  <meta name="description" content="Exam 00 practice: first machine exam covering Shell basics and beginner C. Levels 0-2 with exercises and tips for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/" class="active">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/exams/">Exams</a></li>
+          <li><span aria-current="page">Exam 00</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Exam 00 — First Machine Exam</h1>
+        <p>The first exam typically covers Shell basics and beginner C. 3 hours, graded automatically.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-warning">
+          <p><strong>Exam Rules:</strong> You must <code>cd</code> to the correct directory, name your files exactly as required, and follow the Norm. No internet, no notes, no external tools. The exam uses a custom grading system — output must match expected results character by character.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Mindset Checklist</h2>
+        <ul>
+          <li>Read the subject carefully — understand input, output, and constraints before writing code</li>
+          <li>Start with the easiest level 0 exercises to build confidence and secure base points</li>
+          <li>Manage your time: 3 hours goes fast. If stuck on an exercise, move on and come back</li>
+          <li>Test edge cases: empty input, negative numbers, maximum values, special characters</li>
+          <li>Always re-read your code before submitting — one typo can cost you the exercise</li>
+          <li>Use the built-in <code>norminette</code> check before final submission</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Level Breakdown</h2>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 0</span> Fundamentals</h3>
+          <p>Basic output and simple programs. No arguments, no loops beyond basic iteration.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">aff_a</span><br><span class="ex-desc">Display the first 'a' character in a string, or 'z' if none</span></div></li>
+            <li><div><span class="ex-name">aff_first_param</span><br><span class="ex-desc">Display the first command-line parameter</span></div></li>
+            <li><div><span class="ex-name">aff_last_param</span><br><span class="ex-desc">Display the last command-line parameter</span></div></li>
+            <li><div><span class="ex-name">ft_countdown</span><br><span class="ex-desc">Display digits from 9 down to 0</span></div></li>
+            <li><div><span class="ex-name">ft_print_numbers</span><br><span class="ex-desc">Display digits from 0 to 9</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 1</span> Basic Functions</h3>
+          <p>Simple string and memory operations. Single loops, basic pointer usage.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">ft_strcpy</span><br><span class="ex-desc">Copy a string from source to destination</span></div></li>
+            <li><div><span class="ex-name">ft_strlen</span><br><span class="ex-desc">Return the length of a string</span></div></li>
+            <li><div><span class="ex-name">ft_swap</span><br><span class="ex-desc">Swap the values of two integers</span></div></li>
+            <li><div><span class="ex-name">ft_putstr</span><br><span class="ex-desc">Display a string character by character</span></div></li>
+            <li><div><span class="ex-name">repeat_alpha</span><br><span class="ex-desc">Repeat each letter by its position in the alphabet</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 2</span> Intermediate Logic</h3>
+          <p>String comparisons, conversions, and basic algorithms.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">ft_atoi</span><br><span class="ex-desc">Convert a string to an integer</span></div></li>
+            <li><div><span class="ex-name">ft_strcmp</span><br><span class="ex-desc">Compare two strings lexicographically</span></div></li>
+            <li><div><span class="ex-name">ft_strdup</span><br><span class="ex-desc">Duplicate a string with malloc</span></div></li>
+            <li><div><span class="ex-name">ft_strrev</span><br><span class="ex-desc">Reverse a string in place</span></div></li>
+            <li><div><span class="ex-name">alpha_mirror</span><br><span class="ex-desc">Replace letters with their mirror in the alphabet (a->z, b->y, etc.)</span></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Allowed Functions</h2>
+        <table>
+          <thead>
+            <tr><th>Level</th><th>Allowed Functions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td><code>write</code></td></tr>
+            <tr><td>1</td><td><code>write</code></td></tr>
+            <tr><td>2</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-danger">
+          <p><strong>Common Mistakes:</strong> Forgetting newline characters, incorrect file names, missing header includes, norm errors (too many lines, wrong indentation), off-by-one errors in loops, not handling empty strings.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Timed Practice Recommendations</h2>
+        <p>Set a timer for 3 hours and practice completing all level 0-2 exercises in one sitting. Focus on speed and accuracy. Repeat this process 2-3 times before the actual exam.</p>
+        <ul>
+          <li>Session 1: Complete all level 0 exercises within 30 minutes</li>
+          <li>Session 2: Complete all level 1 exercises within 45 minutes</li>
+          <li>Session 3: Full mock exam — all levels, 3 hours, no interruptions</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>C 00</h3>
+            <p>First C programs — putchar, loops, conditionals</p>
+            <a href="/c-days/c00.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+          <div class="card">
+            <h3>C 01</h3>
+            <p>Pointers and memory basics</p>
+            <a href="/c-days/c01.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+          <div class="card">
+            <h3>Shell 00</h3>
+            <p>Shell basics — commands, permissions, pipelines</p>
+            <a href="/shell/shell00.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

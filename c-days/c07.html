@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 07 — Memory Allocation — 1337 Piscine Prep</title>
+  <meta name="description" content="C 07 module: dynamic memory allocation, malloc, free, ft_strdup, ft_range, ft_strjoin, ft_convert_base, ft_split for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/c-days/">C Days</a></li>
+          <li><span aria-current="page">C 07</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>C 07 — Memory Allocation</h1>
+        <p>C 07 introduces dynamic memory allocation. You will learn to use <code>malloc</code> and <code>free</code> to manage heap memory, duplicate strings, create ranges, join strings, convert number bases, and split strings — all while avoiding leaks and handling allocation failures.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="concept-list">
+          <span class="tag">malloc</span>
+          <span class="tag">free</span>
+          <span class="tag">Memory Allocation</span>
+          <span class="tag">String Duplication</span>
+          <span class="tag">Dynamic Arrays</span>
+          <span class="tag">Memory Management</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/6 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c07')" style="margin-bottom:1rem;">Reset progress</button>
+        <ul class="exercise-list">
+          <li>
+            <div>
+              <span class="ex-name">ex00: ft_strdup</span><br>
+              <span class="ex-desc">Duplicate a string by allocating new memory and copying the content</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex01: ft_range</span><br>
+              <span class="ex-desc">Return an array of ints from min to max (inclusive-exclusive)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex02: ft_ultimate_range</span><br>
+              <span class="ex-desc">Like ft_range but returns the size and uses a pointer-to-pointer</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex03: ft_strjoin</span><br>
+              <span class="ex-desc">Concatenate an array of strings with a separator into a single allocated string</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex04: ft_convert_base</span><br>
+              <span class="ex-desc">Convert a number from one base string to another, returning an allocated string</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex05: ft_split</span><br>
+              <span class="ex-desc">Split a string by a charset into an allocated NULL-terminated array of strings</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Compile & Test</h2>
+        <pre><code># Compile all exercises
+gcc -Wall -Wextra -Werror -o test_ex00 ex00/ft_strdup.c main.c
+gcc -Wall -Wextra -Werror -o test_ex01 ex01/ft_range.c main.c
+# Test with valgrind for memory leaks
+valgrind --leak-check=full ./test_ex00</code></pre>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Memory leaks:</strong> Every <code>malloc</code> must eventually be matched with a <code>free</code>. Always free allocated memory when done.</li>
+          <li><strong>Null check after malloc:</strong> Always check if <code>malloc</code> returned <code>NULL</code>. If it fails, return an error indicator or <code>NULL</code>.</li>
+          <li><strong>Forgetting free:</strong> In functions like <code>ft_strjoin</code>, intermediate allocations must be freed to avoid leaks.</li>
+          <li><strong>Dangling pointers:</strong> After freeing a pointer, set it to <code>NULL</code> to avoid using freed memory.</li>
+          <li><strong>Buffer overflow in strjoin:</strong> Calculate total length precisely, including separators and null terminator.</li>
+          <li><strong>NULL parameter handling:</strong> Decide how your function behaves when passed <code>NULL</code> arguments and document it.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-info">
+          <p><strong>Peer Evaluation Tip:</strong> When evaluating C 07 exercises, always check for <code>malloc</code> return values, proper null termination of strings, and run <code>valgrind</code> to confirm no memory leaks. Pay special attention to edge cases: empty strings, zero-length ranges, and invalid base strings.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Exam 02</h3>
+            <p>Dynamic allocation exercises like ft_range and ft_split commonly appear in machine exams.</p>
+            <a href="/exams/exam02.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>C 08 — Headers & Structs</h3>
+            <p>Organize your function prototypes and structures in header files.</p>
+            <a href="/c-days/c08.html" class="btn btn-sm btn-outline">Next Module</a>
+          </div>
+          <div class="card">
+            <h3>C 12 — Linked Lists</h3>
+            <p>Dynamic data structures built on top of malloc — understand memory allocation first.</p>
+            <a href="/c-days/c12.html" class="btn btn-sm btn-outline">View Module</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c07',6);});</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Preparation — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/" class="active">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span>Exams</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Exam Preparation</h1>
+        <p>Machine exams are timed sessions (typically 3 hours) where you solve C exercises on a custom grading platform. An automated system called Moulinette evaluates your submissions. Each exam unlocks progressively harder exercises.</p>
+      </div>
+
+      <h2>Exam Overview</h2>
+      <div class="card-grid card-grid-3">
+        <a href="/exams/exam00.html" class="card card-interactive">
+          <h3>Exam 00</h3>
+          <p>First exam — basic C and shell. Tests fundamentals from C00 and Shell 00.</p>
+          <div class="card-meta">
+            <span class="tag tag-accent">Beginner</span>
+            <span class="tag">Level 0–4</span>
+          </div>
+        </a>
+        <a href="/exams/exam01.html" class="card card-interactive">
+          <h3>Exam 01</h3>
+          <p>Second exam — strings, pointers, and recursion. Covers C01–C05 material.</p>
+          <div class="card-meta">
+            <span class="tag tag-warning">Intermediate</span>
+            <span class="tag">Level 0–8</span>
+          </div>
+        </a>
+        <a href="/exams/exam02.html" class="card card-interactive">
+          <h3>Exam 02</h3>
+          <p>Third exam — advanced C, memory allocation, linked lists. C06–C12 material.</p>
+          <div class="card-meta">
+            <span class="tag tag-warning">Intermediate</span>
+            <span class="tag">Level 0–12</span>
+          </div>
+        </a>
+        <a href="/exams/final.html" class="card card-interactive">
+          <h3>Final Exam</h3>
+          <p>End-of-Piscine comprehensive exam. Covers everything from the entire Piscine.</p>
+          <div class="card-meta">
+            <span class="tag tag-danger">Advanced</span>
+            <span class="tag">Level 0–16</span>
+          </div>
+        </a>
+      </div>
+
+      <h2>Rules &amp; Grading</h2>
+      <div class="callout callout-info">
+        <p><strong>Grading system:</strong> Each exam exercise awards a base score. The harder the exercise, the more points. You can retry exercises with a score penalty. Your final rank depends on your total score across all solved exercises.</p>
+      </div>
+      <div class="callout callout-warning">
+        <p><strong>Moulinette:</strong> The automated grading system compiles your code with <code>-Wall -Wextra -Werror</code> and runs predefined tests. If your code does not compile, you get 0 for that exercise. Always test compilation before submitting.</p>
+      </div>
+      <div class="callout callout-success">
+        <p><strong>Allowed functions:</strong> Each exercise specifies which external functions you may use. Using disallowed functions (e.g. <code>printf</code> when only <code>write</code> is allowed) results in a grade of -42 for that exercise.</p>
+      </div>
+      <div class="callout callout-danger">
+        <p><strong>Cheating consequences:</strong> Copying code, accessing forbidden files, or communicating with other students during an exam results in immediate disqualification and possible expulsion from the Piscine.</p>
+      </div>
+
+      <h2>Exam Day Mindset</h2>
+      <ul>
+        <li><strong>Start with what you know.</strong> Solve the easiest exercises first to secure points before tackling harder ones.</li>
+        <li><strong>Read the subject carefully.</strong> Check function prototypes, allowed functions, and expected output format. One missing detail can cost you the exercise.</li>
+        <li><strong>Compile frequently.</strong> Do not write everything then compile at the end. Compile after every few lines to catch errors early.</li>
+        <li><strong>Test edge cases.</strong> Empty strings, negative numbers, INT_MIN, NULL pointers — these are exactly what Moulinette tests.</li>
+        <li><strong>Manage time.</strong> If you are stuck on an exercise for more than 30 minutes, move on. You can always come back.</li>
+        <li><strong>Stay calm.</strong> Exams are stressful by design. Take deep breaths, read the prompt again, and break the problem into smaller pieces.</li>
+        <li><strong>Check your Norm.</strong> Moulinette runs Norminette. Even a perfectly working solution fails if it violates the Norm (25-line functions, forbidden keywords, etc.).</li>
+      </ul>
+
+      <h2>Level-Based Practice</h2>
+      <p>Exams assign exercises by level. The higher your current level, the harder the exercise you receive. Practice these topics at each level:</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Typical Exercises</th>
+              <th>Skills Tested</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag">0</span></td>
+              <td>ft_putchar, ft_print_alphabet, ft_strlen</td>
+              <td>Basic output, loops, strings</td>
+            </tr>
+            <tr>
+              <td><span class="tag">1</span></td>
+              <td>ft_swap, ft_putstr, ft_strcpy</td>
+              <td>Pointers, string copy</td>
+            </tr>
+            <tr>
+              <td><span class="tag">2</span></td>
+              <td>ft_atoi, ft_strcmp, ft_strrev</td>
+              <td>Number conversion, comparison</td>
+            </tr>
+            <tr>
+              <td><span class="tag">3</span></td>
+              <td>ft_strcat, ft_strdup, ft_range</td>
+              <td>Concatenation, memory allocation</td>
+            </tr>
+            <tr>
+              <td><span class="tag">4</span></td>
+              <td>ft_putnbr_base, ft_split, ft_itoa</td>
+              <td>Base conversion, string splitting</td>
+            </tr>
+            <tr>
+              <td><span class="tag">5</span></td>
+              <td>ft_atoi_base, ft_print_hex, ft_list_push_front</td>
+              <td>Complex conversion, linked lists</td>
+            </tr>
+            <tr>
+              <td><span class="tag">6–8</span></td>
+              <td>ft_list_remove_if, ft_sort_params, brainfuck</td>
+              <td>Advanced data structures, interpreters</td>
+            </tr>
+            <tr>
+              <td><span class="tag">9–12</span></td>
+              <td>Options, ft_advanced_sort, ft_itoa_base</td>
+              <td>Bit manipulation, advanced algorithms</td>
+            </tr>
+            <tr>
+              <td><span class="tag">13–16</span></td>
+              <td>Final exam exercises, comprehensive problems</td>
+              <td>Everything combined</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

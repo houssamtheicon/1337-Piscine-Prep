@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rush 02 — 1337 Piscine Prep</title>
+  <meta name="description" content="Rush 02 weekend group project for 1337 Piscine: dictionary-based parsing, number conversion, and memory management.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/" class="active">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/rushes/">Rushes</a>
+        <span class="sep">/</span>
+        <span>Rush 02</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Rush 02</h1>
+        <p>An advanced project involving dictionary-based parsing and number-to-word conversion. Typically assigned during week 3, it tests memory management, string splitting, and file I/O skills.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Overview</h2>
+        <p>Rush 02 requires you to read a dictionary file mapping numbers to their word representations, then convert any given numeric input into its English (or French) textual form. This project brings together file parsing, dynamic memory allocation, and recursive decomposition of numbers into thousands, millions, and billions.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Key Concepts</h2>
+        <div class="concept-list">
+          <span class="tag tag-accent">Dictionaries</span>
+          <span class="tag tag-accent">Parsing</span>
+          <span class="tag tag-accent">File I/O</span>
+          <span class="tag tag-accent">Memory Management</span>
+          <span class="tag tag-accent">String Splitting</span>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Approach Discussion</h2>
+        <p>Start by designing a data structure to store dictionary entries (key-value pairs). Parse the dictionary file line by line, splitting on the delimiter. Store each entry. Then implement the conversion logic: break the number into groups of three digits (units, thousands, millions, billions) and convert each group recursively using the dictionary.</p>
+        <p>Divide the work: one partner handles dictionary parsing and storage, the other implements the recursive number conversion. Both must collaborate on the data structure design. Use <code>malloc</code> carefully and pair every allocation with a corresponding <code>free</code>.</p>
+        <div class="callout callout-warning">
+          <p><strong>Warning:</strong> The dictionary format can vary. Handle different delimiters, whitespace, and comment lines robustly.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Edge Cases</h2>
+        <div class="card">
+          <ul>
+            <li>Large numbers (billions, trillions) — ensure your recursive approach scales</li>
+            <li>Invalid input — non-numeric strings, negative numbers, empty input</li>
+            <li>Missing dictionary entries — what happens if a key is not found?</li>
+            <li>Zero — special case in most natural language representations</li>
+            <li>Malformed dictionary files — missing values, duplicate keys, incorrect formatting</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li>Parsing errors — mishandling dictionary delimiters, whitespace, or newlines corrupts the entire lookup table</li>
+          <li>Memory leaks — failing to free dictionary entries or temporary strings causes memory exhaustion</li>
+          <li>Buffer overflows — writing beyond allocated memory when constructing large number strings</li>
+          <li>Off-by-one in number grouping — incorrect handling of digit grouping for thousands/millions/billions</li>
+          <li>Missing the "and" / separator logic — natural language requires proper conjunctions between groups</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

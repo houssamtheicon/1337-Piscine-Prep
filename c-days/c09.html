@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 09 — Makefiles & Libraries — 1337 Piscine Prep</title>
+  <meta name="description" content="C 09 module: Makefiles, static libraries, ar, ranlib, Make rules, object files for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/c-days/">C Days</a></li>
+          <li><span aria-current="page">C 09</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>C 09 — Makefiles &amp; Libraries</h1>
+        <p>C 09 introduces build automation with Makefiles and static library creation. You will write a Makefile that compiles a library (<code>libft.a</code>) and a more advanced Makefile with specific rules, flags, and relinking prevention.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="concept-list">
+          <span class="tag">Makefile</span>
+          <span class="tag">Make Rules</span>
+          <span class="tag">Static Libraries (.a)</span>
+          <span class="tag">ar</span>
+          <span class="tag">ranlib</span>
+          <span class="tag">Object Files</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/2 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c09')" style="margin-bottom:1rem;">Reset progress</button>
+        <ul class="exercise-list">
+          <li>
+            <div>
+              <span class="ex-name">ex00: libft.a</span><br>
+              <span class="ex-desc">Create a static library with a Makefile that compiles source files and archives them</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex01: Makefile</span><br>
+              <span class="ex-desc">Write a Makefile with specific variables (CC, CFLAGS), rules (all, clean, fclean, re), and relinking prevention</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Compile & Test</h2>
+        <pre><code># Build the library
+make -C ex00
+# Test linking against the library
+gcc -Wall -Wextra -Werror -o test_prog main.c -L. -lft
+# Clean build artifacts
+make -C ex00 fclean
+# Test the advanced Makefile
+make -C ex01
+make -C ex01 re</code></pre>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>CC vs gcc:</strong> Use <code>CC</code> as the compiler variable (not hardcoded <code>gcc</code>). The subject expects <code>$(CC)</code> with <code>$(CFLAGS)</code>.</li>
+          <li><strong>Missing $(CC) $(CFLAGS):</strong> Compile rules must use <code>$(CC) $(CFLAGS) -c $&lt; -o $@</code> pattern.</li>
+          <li><strong>Wrong .c.o rule:</strong> The implicit suffix rule uses <code>.c.o:</code> with a leading dot. Use tab indentation.</li>
+          <li><strong>Phony targets:</strong> Declare <code>.PHONY: all clean fclean re</code> to avoid conflicts with file names.</li>
+          <li><strong>Relinking prevention:</strong> Use <code>$&lt;</code> and <code>$@</code> automatic variables so <code>make</code> only rebuilds when sources change.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-info">
+          <p><strong>Peer Evaluation Tip:</strong> Run <code>make</code> twice — the second run should produce <code>Nothing to be done</code> (relinking prevention). Check that the Makefile uses <code>ar rcs</code> (not <code>ar rc</code> or <code>ar r</code>) and that <code>ranlib</code> is called if required. Verify that <code>make fclean</code> removes both the object files and the library.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>C 10 — File I/O</h3>
+            <p>Continue with file descriptors and system-level I/O operations.</p>
+            <a href="/c-days/c10.html" class="btn btn-sm btn-outline">Next Module</a>
+          </div>
+          <div class="card">
+            <h3>Resources — GCC Guide</h3>
+            <p>Detailed guide on compilation flags, linking, and debugging.</p>
+            <a href="/resources/gcc.html" class="btn btn-sm btn-outline">View Guide</a>
+          </div>
+          <div class="card">
+            <h3>Rushes</h3>
+            <p>Group projects often require Makefiles — practice now.</p>
+            <a href="/rushes/" class="btn btn-sm btn-outline">View Rushes</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c09',2);});</script>
+</body>
+</html>

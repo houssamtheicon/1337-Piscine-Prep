@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 10 — File Descriptors & I/O — 1337 Piscine Prep</title>
+  <meta name="description" content="C 10 module: file descriptors, open, read, write, close, standard streams, display_file, ft_cat, tail, hexdump for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/c-days/">C Days</a></li>
+          <li><span aria-current="page">C 10</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>C 10 — File Descriptors &amp; I/O</h1>
+        <p>C 10 covers low-level file I/O using system calls: <code>open</code>, <code>read</code>, <code>write</code>, <code>close</code>. You will reimplement standard Unix utilities like <code>cat</code>, <code>tail</code>, and <code>hexdump</code>, and learn to work with file descriptors, error handling via <code>errno</code>, and buffered reads.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="concept-list">
+          <span class="tag">File Descriptors</span>
+          <span class="tag">open/read/write</span>
+          <span class="tag">close</span>
+          <span class="tag">Standard Streams (stdin/stdout/stderr)</span>
+          <span class="tag">errno</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/7 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c10')" style="margin-bottom:1rem;">Reset progress</button>
+        <ul class="exercise-list">
+          <li>
+            <div>
+              <span class="ex-name">ex00: display_file</span><br>
+              <span class="ex-desc">Display the contents of a file using read/write (basic cat)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex01: cat (ft_cat)</span><br>
+              <span class="ex-desc">Implement cat with multiple file support and stdin reading</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex02: tail</span><br>
+              <span class="ex-desc">Display the last N lines of a file (like tail -c)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex03: hexdump</span><br>
+              <span class="ex-desc">Display file contents in hexadecimal format</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex04: ft_putchar_fd</span><br>
+              <span class="ex-desc">Write a character to a given file descriptor</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex05: ft_putstr_fd</span><br>
+              <span class="ex-desc">Write a string to a given file descriptor</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex06: ft_putnbr_fd</span><br>
+              <span class="ex-desc">Write an integer to a given file descriptor</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Compile & Test</h2>
+        <pre><code># Test display_file
+gcc -Wall -Wextra -Werror -o display_file ex00/display_file.c
+./display_file test.txt
+
+# Test ft_cat
+gcc -Wall -Wextra -Werror -o ft_cat ex01/ft_cat.c
+./ft_cat file1.txt file2.txt
+echo "hello" | ./ft_cat
+
+# Test tail
+gcc -Wall -Wextra -Werror -o ft_tail ex02/ft_tail.c
+./ft_tail -c 10 test.txt
+
+# Test hexdump
+gcc -Wall -Wextra -Werror -o ft_hexdump ex03/ft_hexdump.c
+./ft_hexdump test.txt</code></pre>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>File descriptor leaks:</strong> Every <code>open()</code> must have a matching <code>close()</code>. Forgetting to close can exhaust system file limits.</li>
+          <li><strong>Error handling:</strong> Check <code>open()</code> return value; it returns <code>-1</code> on failure. Use <code>errno</code> or <code>strerror</code> for meaningful messages.</li>
+          <li><strong>BUFFER_SIZE:</strong> Define a reasonable buffer size (e.g., 4096) for <code>read()</code>. Too small is slow; too large wastes memory.</li>
+          <li><strong>Binary files:</strong> <code>read()</code> works on binary data. Do not treat binary data as null-terminated strings.</li>
+          <li><strong>Edge cases with large files:</strong> Ensure your tail/hexdump implementations handle files larger than available RAM.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-info">
+          <p><strong>Peer Evaluation Tip:</strong> Test with empty files, non-existent files (check error messages), binary files, and stdin input. Verify that <code>ft_cat</code> reads from stdin when no filename is given. Check that <code>display_file</code> handles multiple files correctly.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Exam 02</h3>
+            <p>File descriptor exercises test your understanding of low-level I/O.</p>
+            <a href="/exams/exam02.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>C 11 — Function Pointers</h3>
+            <p>Continue with function pointers and callback-based programming.</p>
+            <a href="/c-days/c11.html" class="btn btn-sm btn-outline">Next Module</a>
+          </div>
+          <div class="card">
+            <h3>Resources — GCC Guide</h3>
+            <p>Learn about compilation flags and debugging with file I/O programs.</p>
+            <a href="/resources/gcc.html" class="btn btn-sm btn-outline">View Guide</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c10',7);});</script>
+</body>
+</html>

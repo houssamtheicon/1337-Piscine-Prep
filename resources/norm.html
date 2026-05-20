@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Norminette — The 42 Norm — 1337 Piscine Prep</title>
+  <meta name="description" content="Complete guide to the 42 Norm coding standard for 1337 Piscine: indentation, line length, function limits, forbidden constructs, and common violations.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/resources/">Resources</a>
+        <span class="sep">/</span>
+        <span>Norminette</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Norminette — The 42 Norm</h1>
+        <p>The Norm is the official coding standard of 42 and 1337. Every project you submit must pass norminette checks. Understanding these rules from day one will save you countless fix sessions.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>What is the Norm?</h2>
+        <p>The Norm is a set of formatting and style rules that all C code must follow at 42/1337. A program called <code>norminette</code> checks your files automatically. If your code does not comply, your project is rejected regardless of functionality.</p>
+        <div class="callout callout-warning">
+          <p><strong>Important:</strong> Norminette checks are automated. There is no negotiation — either your code passes or it does not. Run norminette before every submission.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Indentation</h2>
+        <p>Use <strong>4 spaces</strong> per indentation level. Tabs are forbidden.</p>
+        <pre><code>int     main(void)
+{
+    int x;
+
+    x = 42;
+    if (x > 0)
+    {
+        ft_putnbr(x);
+    }
+    return (0);
+}</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Line Length</h2>
+        <p>Maximum line length is <strong>80 columns</strong> (including spaces). Lines exceeding 80 characters will not pass.</p>
+        <div class="callout callout-info">
+          <p><strong>Tip:</strong> Break long lines at logical points. Use descriptive but concise variable names to keep lines short.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Function Limits</h2>
+        <ul>
+          <li><strong>25 lines max</strong> per function (including the signature line)</li>
+          <li><strong>4 parameters max</strong> per function</li>
+          <li><strong>5 variables max</strong> per function (declared at the top)</li>
+        </ul>
+        <pre><code>// Good — within limits
+int     add(int a, int b, int c, int d)
+{
+    int sum;
+    int result;
+
+    sum = a + b;
+    result = sum + c + d;
+    return (result);
+}</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Forbidden Constructs</h2>
+        <p>These language features are <strong>not allowed</strong> in 42 C projects:</p>
+        <ul>
+          <li><code>for</code> loops — use <code>while</code> instead</li>
+          <li><code>switch</code> / <code>case</code> — use <code>if</code> / <code>else if</code></li>
+          <li>Ternary operator (<code>condition ? a : b</code>)</li>
+          <li><code>printf</code>, <code>malloc</code> (unless the subject allows it), and most standard library functions</li>
+          <li>Global variables (except when explicitly allowed)</li>
+          <li>Functions from external libraries beyond <code>write</code>, <code>malloc</code>, <code>free</code>, and a few others</li>
+        </ul>
+        <div class="callout callout-danger">
+          <p><strong>Zero tolerance:</strong> Using <code>for</code>, <code>switch</code>, or ternary will result in an automatic 0 on the project.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Comments Style</h2>
+        <p>Only <code>/* */</code> style comments are allowed. The <code>//</code> style comments are forbidden. Comments must not contain inappropriate content.</p>
+        <pre><code>/* This is allowed */
+int     x = 42;
+
+// This is forbidden</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>File Structure</h2>
+        <p>Each <code>.c</code> file must contain the 42 standard header at the top. Functions should be ordered logically, with related functions grouped together. Separate function implementations with a single blank line.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>The 42 Header</h2>
+        <p>Every file must start with the 42 header. You can insert it automatically in Vim with <code>:Stdheader</code> or in VS Code with the 42 header extension.</p>
+        <pre><code>/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filename.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: your_login &lt;your_login@student.1337.ma&gt;    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: YYYY/MM/DD HH:MM:SS by your_login       #+#    #+#             */
+/*   Updated: YYYY/MM/DD HH:MM:SS by your_login      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Violations</h2>
+        <ul class="pitfall-list">
+          <li>Trailing whitespace or spaces at the end of lines</li>
+          <li>Missing blank lines between functions</li>
+          <li>Variable declarations not at the top of the function</li>
+          <li>Multiple assignments on one line</li>
+          <li>Incorrect spacing around operators and parentheses</li>
+          <li>Missing or extra empty lines at end of file</li>
+          <li>Function name too long (causes line length violations when called)</li>
+        </ul>
+      </section>
+
+      <section class="module-section">
+        <h2>Running Norminette</h2>
+        <p>To check your code, run:</p>
+        <pre><code>norminette your_file.c
+norminette *.c           # Check all C files in directory
+norminette -R CheckForbiddenSourceHeader your_file.c</code></pre>
+        <p>Run norminette <strong>before every submission</strong>. Fix all errors before pushing. A project that fails norminette gets an automatic 0.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

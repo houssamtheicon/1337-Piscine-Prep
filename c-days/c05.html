@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C05 — Recursion &amp; Math | C Days — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/c-days/">C Days</a>
+        <span class="sep">/</span>
+        <span>C05</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C05 — Recursion &amp; Math</h1>
+      </div>
+
+      <section class="module-section">
+        <p>C05 introduces recursion — a function calling itself — through mathematical problems. You will implement factorial (both iterative and recursive), power, fibonacci, prime detection, and the challenging ten queens puzzle. Strong understanding of base cases and stack frames is essential.</p>
+
+        <h2>Concepts</h2>
+        <div class="concept-list">
+          <span class="tag">Recursion</span>
+          <span class="tag">Factorial</span>
+          <span class="tag">Power</span>
+          <span class="tag">Fibonacci</span>
+          <span class="tag">Prime Numbers</span>
+          <span class="tag">Square Root</span>
+        </div>
+
+        <h2>Exercises</h2>
+
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/0 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c05')" style="margin-bottom:1rem;">Reset progress</button>
+
+        <ul class="exercise-list">
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex00: ft_iterative_factorial</span><br>
+              <span class="ex-desc">Compute factorial iteratively</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex01: ft_recursive_factorial</span><br>
+              <span class="ex-desc">Compute factorial recursively</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex02: ft_iterative_power</span><br>
+              <span class="ex-desc">Compute power iteratively</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex03: ft_recursive_power</span><br>
+              <span class="ex-desc">Compute power recursively</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex04: ft_fibonacci</span><br>
+              <span class="ex-desc">Return the nth fibonacci number</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex05: ft_sqrt</span><br>
+              <span class="ex-desc">Return the integer square root</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex06: ft_is_prime</span><br>
+              <span class="ex-desc">Check if a number is prime</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex07: ft_find_next_prime</span><br>
+              <span class="ex-desc">Find the next prime after a number</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex08: ft_ten_queens_puzzle</span><br>
+              <span class="ex-desc">Solve the ten queens puzzle</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Compile &amp; Test</h2>
+        <pre><code># Test factorial
+cc -Wall -Wextra -Werror ex00/ft_iterative_factorial.c -o test_fact
+
+# Test with main
+echo 'int ft_iterative_factorial(int n);int main(){return ft_iterative_factorial(5);}' > main.c \
+  && cc -Wall -Wextra -Werror main.c ex00/ft_iterative_factorial.c -o test \
+  && ./test; echo $?</code></pre>
+
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Stack overflow:</strong> Deep recursion (e.g. fibonacci(1000000)) will overflow the call stack. Prefer iteration for large inputs or use tail recursion.</li>
+          <li><strong>Base cases:</strong> Always define base cases first. For factorial: <code>if (n &lt;= 1) return (1);</code>. For fibonacci: <code>if (n &lt;= 1) return (n);</code>.</li>
+          <li><strong>Integer overflow:</strong> Factorial grows extremely fast. 13! exceeds 32-bit int range. Return 0 for inputs that would overflow.</li>
+          <li><strong>Negative input handling:</strong> Factorial and fibonacci of negative numbers are undefined. The subject typically expects you to return 0.</li>
+        </ul>
+
+        <h2>Peer-Eval Reminders</h2>
+        <div class="callout callout-warning">
+          <p><strong>Check these during evaluation:</strong> Does <code>ft_sqrt</code> return the correct floor for non-perfect squares? Does <code>ft_is_prime</code> handle 0, 1, and 2 correctly? Does <code>ft_ten_queens_puzzle</code> actually count all 724 solutions? Are recursive functions properly terminated?</p>
+        </div>
+
+        <h2>Practice for Exams</h2>
+        <ul>
+          <li><a href="/exams/">Exam 01</a> — basic recursion exercises</li>
+          <li><a href="/exams/">Exam 02</a> — advanced recursion and math</li>
+          <li><a href="/exams/">Final Exam</a> — complex recursive problems</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c05',9);});</script>
+</body>
+</html>

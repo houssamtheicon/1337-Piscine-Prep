@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Guide for the Piscine — 1337 Piscine Prep</title>
+  <meta name="description" content="Git workflow guide for 1337 Piscine: essential commands, submission process, gitignore, and common mistakes to avoid.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/resources/">Resources</a>
+        <span class="sep">/</span>
+        <span>Git Guide</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Git Guide for the Piscine</h1>
+        <p>Git is how you submit all your projects during the Piscine. Every module, exam, and rush is delivered via a Git push to a designated repository.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Overview</h2>
+        <p>During the Piscine, you will be assigned a personal Git repository on the school's platform. You clone it, work locally, commit your changes, and push them to submit. The evaluation system picks up your pushed code automatically. Understanding the basic Git workflow is essential from day one.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Basic Commands</h2>
+        <table>
+          <thead>
+            <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>git init</code></td><td>Initialize a new repository</td><td><code>git init my_project</code></td></tr>
+            <tr><td><code>git clone</code></td><td>Copy a remote repository locally</td><td><code>git clone &lt;repo-url&gt;</code></td></tr>
+            <tr><td><code>git add</code></td><td>Stage files for commit</td><td><code>git add file.c</code> or <code>git add .</code></td></tr>
+            <tr><td><code>git commit</code></td><td>Commit staged changes</td><td><code>git commit -m "message"</code></td></tr>
+            <tr><td><code>git push</code></td><td>Push commits to remote</td><td><code>git push origin main</code></td></tr>
+            <tr><td><code>git status</code></td><td>Show working tree status</td><td><code>git status</code></td></tr>
+            <tr><td><code>git log</code></td><td>Show commit history</td><td><code>git log --oneline</code></td></tr>
+            <tr><td><code>git pull</code></td><td>Fetch and merge changes</td><td><code>git pull origin main</code></td></tr>
+            <tr><td><code>git diff</code></td><td>Show unstaged changes</td><td><code>git diff</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="module-section">
+        <h2>Typical Workflow</h2>
+        <pre><code># Start the day — pull latest changes
+git pull origin main
+
+# Work on your files...
+
+# Check what changed
+git status
+
+# Stage your changes
+git add ex00/ft_putchar.c ex01/*.c
+
+# Commit with a clear message
+git commit -m "Complete ex00 and ex01 for C00"
+
+# Submit your work
+git push origin main</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>.gitignore for C Projects</h2>
+        <p>A proper <code>.gitignore</code> prevents compiled binaries and temporary files from being committed. Create this file in your repository root:</p>
+        <pre><code># Object files
+*.o
+*.obj
+
+# Executables
+*.out
+*.exe
+a.out
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debug files
+*.dSYM/</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>How Submission Works</h2>
+        <p>Submission is simply a <code>git push</code>. The evaluation system checks the remote repository for your latest commit at the submission deadline. There is no upload form or separate submission tool — your push <em>is</em> the submission.</p>
+        <div class="callout callout-danger">
+          <p><strong>Critical:</strong> Pushing after the deadline will mark your work as late or not counted. Always push well before the cutoff time.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Mistakes</h2>
+        <ul class="pitfall-list">
+          <li>Forgetting <code>.gitignore</code> — committing <code>.o</code> files and binaries bloats the repository</li>
+          <li>Committing compiled binaries — always check before adding; use <code>git status</code> to review</li>
+          <li>Large commits — commit frequently with focused messages, not once at the end</li>
+          <li>Pushing without pulling first — leads to conflicts and rejected pushes</li>
+          <li>Force pushing — <code>git push --force</code> can destroy teammates' work and lose history</li>
+          <li>Wrong branch — ensure you are on the correct branch before committing</li>
+          <li>Not checking after push — run <code>git log</code> or check the remote to confirm your push succeeded</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

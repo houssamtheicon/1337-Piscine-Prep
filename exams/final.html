@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Exam — End of Piscine — 1337 Piscine Prep</title>
+  <meta name="description" content="Final Exam practice: comprehensive end-of-Piscine exam covering the entire curriculum. Levels 0-5 with exercises for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/" class="active">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/exams/">Exams</a></li>
+          <li><span aria-current="page">Final Exam</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Final Exam — End of Piscine</h1>
+        <p>Comprehensive exam covering the entire Piscine curriculum. This is the most challenging exam — expect exercises spanning all modules from C 00 through C 13, including linked lists, trees, file I/O, and function pointers. 4 hours, graded automatically.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-warning">
+          <p><strong>Exam Rules:</strong> The final exam is longer (4 hours) and covers more material than previous exams. You will need to solve exercises across all difficulty levels. Time management and prioritization are critical to success.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Mindset Checklist</h2>
+        <ul>
+          <li>Review all C modules before exam day — especially C 07 (malloc), C 11 (function pointers), C 12 (linked lists), and C 13 (trees)</li>
+          <li>Practice complete mock exams under timed conditions — aim for 4 hours non-stop</li>
+          <li>Prioritize exercises: start with levels 0-2 to secure points, then tackle levels 3-4, and attempt level 5 last</li>
+          <li>Have a strategy for each exercise type: string manipulation, memory allocation, linked lists, tree traversal</li>
+          <li>Know your debugging shortcuts: limited <code>write</code> for output, mental trace for logic errors</li>
+          <li>Bring your knowledge of common patterns: ft_split, ft_itoa, ft_list_remove_if, btree_insert_data</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Level Breakdown</h2>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 0</span> Fundamentals</h3>
+          <p>Basic output and warm-up. Secure these points first.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">aff_a / aff_z</span><br><span class="ex-desc">Display specific characters from strings</span></div></li>
+            <li><div><span class="ex-name">ft_countdown / ft_print_numbers</span><br><span class="ex-desc">Basic digit display</span></div></li>
+            <li><div><span class="ex-name">hello / only_a / only_z</span><br><span class="ex-desc">Simple character output</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 1</span> Basic Functions</h3>
+          <p>Strings, pointers, and simple loops.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">ft_strcpy / ft_strlen</span><br><span class="ex-desc">Core string operations</span></div></li>
+            <li><div><span class="ex-name">ft_swap / ft_putstr</span><br><span class="ex-desc">Basic pointer and output functions</span></div></li>
+            <li><div><span class="ex-name">rev_print / repeat_alpha</span><br><span class="ex-desc">String transformation exercises</span></div></li>
+            <li><div><span class="ex-name">rot_13 / rotone</span><br><span class="ex-desc">Character rotation ciphers</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 2</span> Intermediate</h3>
+          <p>String comparisons, atoi, bits, and simple data structures.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">ft_atoi</span><br><span class="ex-desc">String to integer conversion</span></div></li>
+            <li><div><span class="ex-name">ft_strcmp / ft_strdup</span><br><span class="ex-desc">Comparison and duplication</span></div></li>
+            <li><div><span class="ex-name">print_bits / reverse_bits / swap_bits</span><br><span class="ex-desc">Bit manipulation</span></div></li>
+            <li><div><span class="ex-name">alpha_mirror / last_word / ulstr</span><br><span class="ex-desc">Advanced string transformations</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 3</span> Advanced</h3>
+          <p>Memory allocation, base conversion, linked list basics.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">add_prime_sum / epur_str</span><br><span class="ex-desc">Math and string processing</span></div></li>
+            <li><div><span class="ex-name">ft_atoi_base / print_hex</span><br><span class="ex-desc">Base conversion</span></div></li>
+            <li><div><span class="ex-name">ft_range / ft_rrange</span><br><span class="ex-desc">Allocated integer arrays</span></div></li>
+            <li><div><span class="ex-name">ft_list_size / ft_list_push_front</span><br><span class="ex-desc">Linked list fundamentals</span></div></li>
+            <li><div><span class="ex-name">paramsum / pgcd</span><br><span class="ex-desc">Argument processing and GCD</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 4</span> Expert</h3>
+          <p>Complex allocation, sorting, list manipulation, function pointers.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">ft_itoa / ft_split</span><br><span class="ex-desc">Complex allocation patterns</span></div></li>
+            <li><div><span class="ex-name">ft_list_remove_if / sort_list</span><br><span class="ex-desc">Advanced list operations</span></div></li>
+            <li><div><span class="ex-name">ft_foreach / ft_map (function pointers)</span><br><span class="ex-desc">Higher-order functions</span></div></li>
+            <li><div><span class="ex-name">ft_convert_base</span><br><span class="ex-desc">Base-to-base conversion with malloc</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 5</span> Master</h3>
+          <p>Binary trees, complex sorting, multi-file programs, advanced algorithms.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">btree_insert_data / btree_search_item</span><br><span class="ex-desc">Binary search tree operations</span></div></li>
+            <li><div><span class="ex-name">btree_apply_infix / btree_level_count</span><br><span class="ex-desc">Tree traversal and measurement</span></div></li>
+            <li><div><span class="ex-name">ft_advanced_sort_string_tab</span><br><span class="ex-desc">Advanced string sorting with callbacks</span></div></li>
+            <li><div><span class="ex-name">ft_sorted_list_merge / ft_list_sort</span><br><span class="ex-desc">Complex linked list algorithms</span></div></li>
+            <li><div><span class="ex-name">ft_show_tab (struct display)</span><br><span class="ex-desc">Structure-based output programs</span></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Allowed Functions</h2>
+        <table>
+          <thead>
+            <tr><th>Level</th><th>Allowed Functions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0-1</td><td><code>write</code></td></tr>
+            <tr><td>2</td><td><code>write</code></td></tr>
+            <tr><td>3</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+            <tr><td>4</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+            <tr><td>5</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-danger">
+          <p><strong>Common Mistakes:</strong> Running out of time on lower levels (wasting time on level 5 when level 3-4 points are still available), memory leaks in complex allocation exercises, incorrect tree pointer manipulation, forgetting edge cases in btree operations (empty tree, single node), norm errors in multi-file submissions, not re-reading the subject carefully.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Timed Practice Recommendations</h2>
+        <p>Preparation for the final exam requires systematic practice across all levels. Simulate exam conditions.</p>
+        <ul>
+          <li>Week before: Review all C modules C 00-C 13 — focus on weak areas</li>
+          <li>Session 1: Levels 0-2 mock — complete in 60 minutes</li>
+          <li>Session 2: Levels 3-4 mock — complete in 90 minutes</li>
+          <li>Session 3: Level 5 exercises — practice each one individually</li>
+          <li>Session 4: Full 4-hour mock exam — all levels, no breaks, no external help</li>
+          <li>Session 5: Review mistakes from Session 4 and practice weak exercises</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cumulative Practice Recommendations</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>All C Modules</h3>
+            <p>Review C 00 through C 13. Focus on memory allocation (C 07), linked lists (C 12), and trees (C 13).</p>
+            <a href="/c-days/" class="btn btn-sm btn-outline">Browse Modules</a>
+          </div>
+          <div class="card">
+            <h3>Resources</h3>
+            <p>Norminette, GCC, Git, debugging guides — all essential for exam day.</p>
+            <a href="/resources/" class="btn btn-sm btn-outline">View Resources</a>
+          </div>
+          <div class="card">
+            <h3>Previous Exams</h3>
+            <p>Review Exam 00, 01, 02 material — earlier exam exercises may reappear.</p>
+            <a href="/exams/exam02.html" class="btn btn-sm btn-outline">Exam 02</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam 01 — Second Machine Exam — 1337 Piscine Prep</title>
+  <meta name="description" content="Exam 01 practice: second machine exam covering strings, pointers, C01-C04. Levels 0-3 with exercises and tips for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/" class="active">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/exams/">Exams</a></li>
+          <li><span aria-current="page">Exam 01</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Exam 01 — Second Machine Exam</h1>
+        <p>Strings, pointers, and slightly more complex logic. Expect exercises building on C01-C04. 3 hours, graded automatically.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-warning">
+          <p><strong>Exam Rules:</strong> Same format as Exam 00 but with harder exercises. Topics include string manipulation, atoi, range generation, prime sums, and bit manipulation. All code must be Norm-compliant.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Mindset Checklist</h2>
+        <ul>
+          <li>Review string manipulation functions from C 02-C 04 before the exam</li>
+          <li>Know your <code>ft_atoi</code> implementation by heart — it appears in many forms</li>
+          <li>Practice bitwise operations: print_bits, reverse_bits, etc.</li>
+          <li>Understand <code>malloc</code> patterns for level 3 exercises like ft_range and ft_rrange</li>
+          <li>Budget time: aim for level 0-1 in 30 mins, level 2 in 60 mins, level 3 in 90 mins</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Level Breakdown</h2>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 0-1</span> Review</h3>
+          <p>Reinforces basics from Exam 00. Practice these for speed.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">aff_a</span><br><span class="ex-desc">Display the first 'a' character in a string</span></div></li>
+            <li><div><span class="ex-name">ft_strcpy</span><br><span class="ex-desc">Copy a string from source to destination</span></div></li>
+            <li><div><span class="ex-name">ft_strlen</span><br><span class="ex-desc">Return the length of a string</span></div></li>
+            <li><div><span class="ex-name">ft_putstr</span><br><span class="ex-desc">Display a string character by character</span></div></li>
+            <li><div><span class="ex-name">repeat_alpha</span><br><span class="ex-desc">Repeat each letter by its alphabet position</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 2</span> Medium Complexity</h3>
+          <p>String processing, number conversion, prime numbers, bits.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">add_prime_sum</span><br><span class="ex-desc">Sum all prime numbers up to a given integer</span></div></li>
+            <li><div><span class="ex-name">epur_str</span><br><span class="ex-desc">Remove extra spaces from a string (trim and collapse)</span></div></li>
+            <li><div><span class="ex-name">ft_atoi</span><br><span class="ex-desc">Convert a string to an integer</span></div></li>
+            <li><div><span class="ex-name">ft_strcpy</span><br><span class="ex-desc">Copy a string (possibly with different constraints)</span></div></li>
+            <li><div><span class="ex-name">ft_strdup</span><br><span class="ex-desc">Duplicate a string using malloc</span></div></li>
+            <li><div><span class="ex-name">hidenp</span><br><span class="ex-desc">Check if the first string is hidden in the second</span></div></li>
+            <li><div><span class="ex-name">print_bits</span><br><span class="ex-desc">Display the bits of a byte</span></div></li>
+          </ul>
+        </div>
+
+        <div class="exam-level">
+          <h3><span class="level-badge">Level 3</span> Advanced</h3>
+          <p>Memory allocation, base conversion, list operations, and mathematical reasoning.</p>
+          <ul class="exercise-list">
+            <li><div><span class="ex-name">expand_str</span><br><span class="ex-desc">Expand spaces between words to three spaces</span></div></li>
+            <li><div><span class="ex-name">ft_atoi_base</span><br><span class="ex-desc">Convert a string in a given base to an integer</span></div></li>
+            <li><div><span class="ex-name">ft_list_size</span><br><span class="ex-desc">Return the number of elements in a linked list</span></div></li>
+            <li><div><span class="ex-name">ft_range</span><br><span class="ex-desc">Return an allocated array of ints from min to max</span></div></li>
+            <li><div><span class="ex-name">ft_rrange</span><br><span class="ex-desc">Return an allocated array from max to min (reversed range)</span></div></li>
+            <li><div><span class="ex-name">paramsum</span><br><span class="ex-desc">Sum and display the number of command-line arguments</span></div></li>
+            <li><div><span class="ex-name">pgcd</span><br><span class="ex-desc">Compute the Greatest Common Divisor (PGCD in French)</span></div></li>
+            <li><div><span class="ex-name">print_hex</span><br><span class="ex-desc">Display a number in hexadecimal format</span></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Allowed Functions</h2>
+        <table>
+          <thead>
+            <tr><th>Level</th><th>Allowed Functions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0-1</td><td><code>write</code></td></tr>
+            <tr><td>2</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+            <tr><td>3</td><td><code>write</code>, <code>malloc</code>, <code>free</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-danger">
+          <p><strong>Common Mistakes:</strong> Off-by-one in ft_range (inclusive vs exclusive bounds), forgetting to null-terminate duplicated strings, incorrect prime detection in add_prime_sum, bit order confusion in print_bits, improper handling of negative numbers in ft_atoi.</p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Timed Practice Recommendations</h2>
+        <p>Practice with increasing difficulty. Focus on level 2-3 exercises that require <code>malloc</code> and more complex logic.</p>
+        <ul>
+          <li>Session 1: Level 0-1 review — complete within 20 minutes</li>
+          <li>Session 2: Level 2 exercises — complete within 60 minutes</li>
+          <li>Session 3: Level 3 exercises — complete within 60 minutes</li>
+          <li>Session 4: Full mock exam — all levels, 3 hours, simulate exam conditions</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>C 02 — String Manipulation</h3>
+            <p>Core string functions used in most exam exercises</p>
+            <a href="/c-days/c02.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+          <div class="card">
+            <h3>C 04 — Advanced Strings</h3>
+            <p>ft_atoi and other string-to-number conversions</p>
+            <a href="/c-days/c04.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+          <div class="card">
+            <h3>C 07 — Memory Allocation</h3>
+            <p>malloc patterns for ft_range, ft_strdup, and similar</p>
+            <a href="/c-days/c07.html" class="btn btn-sm btn-outline">Review</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

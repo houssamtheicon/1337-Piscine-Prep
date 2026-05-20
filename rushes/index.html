@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rushes — 1337 Piscine Prep</title>
+  <meta name="description" content="Rush 00, 01, and 02 weekend group projects for 1337 Piscine: collaboration, version control, and applying module concepts.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/" class="active">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span>Rushes</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Rushes — Weekend Group Projects</h1>
+        <p>Rushes are 48-hour collaborative projects done in pairs or small groups. They test teamwork, version control, and applying module concepts under time pressure.</p>
+      </div>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Available Rushes</h2>
+        <div class="card-grid">
+          <a href="/rushes/rush00.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Rush 00</h3>
+            <p>Basic algorithmic project — typically week 1. Focuses on nested loops, grid logic, and character output.</p>
+            <div class="card-meta"><span class="tag">Group</span><span class="tag tag-warning">Weekend</span><span class="tag tag-accent">48h</span></div>
+          </a>
+          <a href="/rushes/rush01.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Rush 01</h3>
+            <p>Intermediate complexity — typically week 2. Involves constraint satisfaction, backtracking, and 2D arrays.</p>
+            <div class="card-meta"><span class="tag">Group</span><span class="tag tag-warning">Weekend</span><span class="tag tag-accent">48h</span></div>
+          </a>
+          <a href="/rushes/rush02.html" class="card card-interactive" style="text-decoration:none;">
+            <h3>Rush 02</h3>
+            <p>Advanced project — typically week 3. Dictionary-based parsing, number conversion, and memory management.</p>
+            <div class="card-meta"><span class="tag">Group</span><span class="tag tag-warning">Weekend</span><span class="tag tag-accent">48h</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Tips for Rushes</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Time Management</h3>
+            <p>Divide the 48 hours wisely. Spend the first hour planning, split implementation into sessions, and reserve the final hours for testing and polishing.</p>
+          </div>
+          <div class="card">
+            <h3>Communication</h3>
+            <p>Stay in constant contact with your partner. Use Discord, Slack, or sit together. Clearly communicate progress, blockers, and decisions.</p>
+          </div>
+          <div class="card">
+            <h3>Git Workflow</h3>
+            <p>Commit early and often. Use meaningful commit messages. Pull before pushing and resolve conflicts immediately. Never force-push on shared branches.</p>
+          </div>
+          <div class="card">
+            <h3>Splitting Work</h3>
+            <p>Divide the problem into independent modules. Work on separate files to avoid merge conflicts. Integrate and test each component together before submission.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 3rem;">
+        <h2>Peer Evaluation Tips for Rushes</h2>
+        <div class="card">
+          <p>Rush evaluations are conducted in pairs and focus on collaboration as much as code. Here is what to expect:</p>
+          <ul>
+            <li><strong>Explain your approach:</strong> Walk your evaluator through your code structure and design decisions.</li>
+            <li><strong>Show Git history:</strong> Your commit history demonstrates collaboration. Consistent, paired commits are a good sign.</li>
+            <li><strong>Test edge cases:</strong> Be ready to run your project against unexpected inputs. Have test cases prepared.</li>
+            <li><strong>Be honest about division of work:</strong> Acknowledge which parts each person handled. It shows teamwork awareness.</li>
+            <li><strong>Ask for feedback:</strong> After presenting, ask your evaluator what they would improve. It shows growth mindset.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

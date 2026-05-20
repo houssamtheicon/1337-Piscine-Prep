@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C02 — String Manipulation | C Days — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/c-days/">C Days</a>
+        <span class="sep">/</span>
+        <span>C02</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C02 — String Manipulation</h1>
+      </div>
+
+      <section class="module-section">
+        <p>C02 is all about string operations. You will implement functions that copy, compare, classify, and transform character arrays. This module builds heavily on the pointer skills from C01 and introduces memory-aware programming.</p>
+
+        <h2>Concepts</h2>
+        <div class="concept-list">
+          <span class="tag">Strings</span>
+          <span class="tag">Character Classification</span>
+          <span class="tag">String Copy</span>
+          <span class="tag">String Compare</span>
+          <span class="tag">Memory</span>
+        </div>
+
+        <h2>Exercises</h2>
+
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/0 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c02')" style="margin-bottom:1rem;">Reset progress</button>
+
+        <ul class="exercise-list">
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex00: ft_strcpy</span><br>
+              <span class="ex-desc">Copy a string</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex01: ft_strncpy</span><br>
+              <span class="ex-desc">Copy up to n characters</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex02: ft_str_is_alpha</span><br>
+              <span class="ex-desc">Check if string is alphabetic</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex03: ft_str_is_numeric</span><br>
+              <span class="ex-desc">Check if string is numeric</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex04: ft_str_is_lowercase</span><br>
+              <span class="ex-desc">Check if string is lowercase</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex05: ft_str_is_uppercase</span><br>
+              <span class="ex-desc">Check if string is uppercase</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex06: ft_str_is_printable</span><br>
+              <span class="ex-desc">Check if string is printable</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex07: ft_strupcase</span><br>
+              <span class="ex-desc">Convert string to uppercase</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex08: ft_strlowcase</span><br>
+              <span class="ex-desc">Convert string to lowercase</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex09: ft_strcapitalize</span><br>
+              <span class="ex-desc">Capitalize each word in a string</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex10: ft_strlcpy</span><br>
+              <span class="ex-desc">Size-bounded string copy</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex11: ft_putstr_non_printable</span><br>
+              <span class="ex-desc">Display string with non-printable chars as hex</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex12: ft_print_memory</span><br>
+              <span class="ex-desc">Display memory contents</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Compile &amp; Test</h2>
+        <pre><code># Test ft_strcpy
+cc -Wall -Wextra -Werror ex00/ft_strcpy.c -o test_strcpy
+
+# Test with main
+echo 'char *ft_strcpy(char *d,char *s);int main(){char d[10];ft_strcpy(d,"hi");return 0;}' > main.c \
+  && cc -Wall -Wextra -Werror main.c ex00/ft_strcpy.c -o test \
+  && ./test</code></pre>
+
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Null terminator:</strong> Strings must end with <code>'\0'</code>. Forgetting it causes undefined behaviour when printing or comparing.</li>
+          <li><strong>Buffer overflow:</strong> Ensure the destination buffer is large enough before copying. <code>ft_strcpy</code> does not check size — that is the caller's responsibility.</li>
+          <li><strong>Non-printable characters:</strong> In <code>ft_putstr_non_printable</code>, remember that characters below 32 or above 126 are non-printable and should be displayed as <code>\xHH</code>.</li>
+          <li><strong>Off-by-one in copy:</strong> Copy the null terminator too! <code>ft_strncpy</code> behaviour differs — it pads with nulls if source is shorter than n.</li>
+        </ul>
+
+        <h2>Peer-Eval Reminders</h2>
+        <div class="callout callout-warning">
+          <p><strong>Check these during evaluation:</strong> Do all functions handle empty strings? Are classification functions returning 1 for true and 0 for false? Does <code>ft_strcapitalize</code> handle non-alphabetic separators correctly? Is the memory output in <code>ft_print_memory</code> properly formatted?</p>
+        </div>
+
+        <h2>Practice for Exams</h2>
+        <ul>
+          <li><a href="/exams/">Exam 01</a> — string manipulation under time pressure</li>
+          <li><a href="/exams/">Exam 02</a> — advanced string operations</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c02',13);});</script>
+</body>
+</html>

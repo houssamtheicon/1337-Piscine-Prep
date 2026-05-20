@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rush 00 — 1337 Piscine Prep</title>
+  <meta name="description" content="Rush 00 weekend group project for 1337 Piscine: basic grid/pattern printing with loops and conditionals.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/" class="active">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/rushes/">Rushes</a>
+        <span class="sep">/</span>
+        <span>Rush 00</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Rush 00</h1>
+        <p>A basic algorithmic project focused on printing geometric patterns using nested loops and conditionals. Typically assigned during week 1 of the Piscine.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Overview</h2>
+        <p>Rush 00 requires you to write a program that displays a rectangle or grid made of specific characters based on dimensions given as parameters. The challenge lies in correctly placing the right characters at corners, edges, and interior positions using conditional logic within nested loops.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Key Concepts</h2>
+        <div class="concept-list">
+          <span class="tag tag-accent">Loops</span>
+          <span class="tag tag-accent">Nested Loops</span>
+          <span class="tag tag-accent">Conditions</span>
+          <span class="tag tag-accent">Function Design</span>
+          <span class="tag tag-accent">Team Coordination</span>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Approach</h2>
+        <p>The typical solution involves breaking the grid into three row types: top, middle, and bottom. The top and bottom rows are unique (corners with connecting characters), while the middle rows use a different pattern. Use <code>ft_putchar</code> to output each character and structure your code around a function that takes width and height as parameters.</p>
+        <p>Split responsibilities with your partner: one handles the character selection logic, the other manages the loop structure and edge cases. Integrate early and test with small dimensions first.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Testing Tips</h2>
+        <div class="card">
+          <ul>
+            <li>Test with small grids first: 1x1, 1x5, 5x1, 3x3</li>
+            <li>Verify output character-by-character against the subject</li>
+            <li>Check trailing newlines — the output must end with a newline</li>
+            <li>Test with size 0 or negative values — your program should handle gracefully or match expected behavior</li>
+            <li>Use <code>diff</code> to compare your output with expected output</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li>Wrong character output — double-check which character goes to corners, edges, and interior</li>
+          <li>Edge case handling — size 0 and size 1 produce very different outputs; test them explicitly</li>
+          <li>Off-by-one errors in grid dimensions — ensure the loops iterate exactly width and height times</li>
+          <li>Missing newlines after each row — each row must end with a newline character</li>
+          <li>Mixing up row and column logic — keep a clear mental model of which loop controls rows vs columns</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+{
+  "c00": {
+    "ex00": {
+      "title": "ft_putchar",
+      "description": "Write a function that displays the character passed as a parameter.",
+      "hints": ["Use write(1, &c, 1) to output the character.", "Include <unistd.h>."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_putchar(char c);",
+      "testInput": "",
+      "expectedOutput": "A",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tft_putchar('A');\n\treturn (0);\n}\n"
+    },
+    "ex01": {
+      "title": "ft_print_alphabet",
+      "description": "Display the alphabet in lowercase, in order, on a single line.",
+      "hints": ["Loop from 'a' to 'z'."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_alphabet(void);",
+      "testInput": "",
+      "expectedOutput": "abcdefghijklmnopqrstuvwxyz",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nvoid ft_print_alphabet(void)\n{\n\tchar c = 'a';\n\twhile (c <= 'z')\n\t{\n\t\tft_putchar(c);\n\t\tc++;\n\t}\n}\n\nint main(void)\n{\n\tft_print_alphabet();\n\treturn (0);\n}\n"
+    },
+    "ex02": {
+      "title": "ft_print_reverse_alphabet",
+      "description": "Display the alphabet in reverse order (z to a).",
+      "hints": ["Loop backward from 'z' to 'a'."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_reverse_alphabet(void);",
+      "testInput": "",
+      "expectedOutput": "zyxwvutsrqponmlkjihgfedcba",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nvoid ft_print_reverse_alphabet(void)\n{\n\tchar c = 'z';\n\twhile (c >= 'a')\n\t{\n\t\tft_putchar(c);\n\t\tc--;\n\t}\n}\n\nint main(void)\n{\n\tft_print_reverse_alphabet();\n\treturn (0);\n}\n"
+    },
+    "ex03": {
+      "title": "ft_print_numbers",
+      "description": "Display all digits from 0 to 9 on a single line.",
+      "hints": ["Loop from '0' to '9'."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_numbers(void);",
+      "testInput": "",
+      "expectedOutput": "0123456789",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nvoid ft_print_numbers(void)\n{\n\tchar c = '0';\n\twhile (c <= '9')\n\t{\n\t\tft_putchar(c);\n\t\tc++;\n\t}\n}\n\nint main(void)\n{\n\tft_print_numbers();\n\treturn (0);\n}\n"
+    },
+    "ex04": {
+      "title": "ft_is_negative",
+      "description": "Display 'N' if the integer argument is negative, or 'P' otherwise.",
+      "hints": ["Use ft_putchar('N') or ft_putchar('P')."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_is_negative(int n);",
+      "testInput": "",
+      "expectedOutput": "P",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nvoid ft_is_negative(int n)\n{\n\tif (n < 0)\n\t\tft_putchar('N');\n\telse\n\t\tft_putchar('P');\n}\n\nint main(void)\n{\n\tft_is_negative(5);\n\treturn (0);\n}\n"
+    },
+    "ex05": {
+      "title": "ft_print_comb",
+      "description": "Display all three-digit combinations where each digit is strictly less than the next.",
+      "hints": ["Use three nested loops.", "Separate with ', ' but not after last."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_comb(void);",
+      "testInput": "",
+      "expectedOutput": "012, 013, 014, 015, 016, 017, 018, 019, 023, 024, 025, 026, 027, 028, 029, 034, 035, 036, 037, 038, 039, 045, 046, 047, 048, 049, 056, 057, 058, 059, 067, 068, 069, 078, 079, 089, 123, 124, 125, 126, 127, 128, 129, 134, 135, 136, 137, 138, 139, 145, 146, 147, 148, 149, 156, 157, 158, 159, 167, 168, 169, 178, 179, 189, 234, 235, 236, 237, 238, 239, 245, 246, 247, 248, 249, 256, 257, 258, 259, 267, 268, 269, 278, 279, 289, 345, 346, 347, 348, 349, 356, 357, 358, 359, 367, 368, 369, 378, 379, 389, 456, 457, 458, 459, 467, 468, 469, 478, 479, 489, 567, 568, 569, 578, 579, 589, 678, 679, 689, 789",
+      "starterCode": ""
+    },
+    "ex06": {
+      "title": "ft_print_comb2",
+      "description": "Display all combinations of two two-digit numbers from 00 to 99.",
+      "hints": ["First from 0-98, second from first+1 to 99.", "Display as two digits."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_comb2(void);",
+      "testInput": "",
+      "expectedOutput": "",
+      "starterCode": ""
+    },
+    "ex07": {
+      "title": "ft_putnbr",
+      "description": "Display an integer. Handle negatives and INT_MIN.",
+      "hints": ["Use recursion.", "Watch for INT_MIN overflow."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_putnbr(int nb);",
+      "testInput": "",
+      "expectedOutput": "42",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putchar(char c)\n{\n\twrite(1, &c, 1);\n}\n\nvoid ft_putnbr(int nb)\n{\n\tif (nb == -2147483648)\n\t{\n\t\twrite(1, \"-2147483648\", 11);\n\t\treturn;\n\t}\n\tif (nb < 0)\n\t{\n\t\tft_putchar('-');\n\t\tnb = -nb;\n\t}\n\tif (nb >= 10)\n\t\tft_putnbr(nb / 10);\n\tft_putchar(nb % 10 + '0');\n}\n\nint main(void)\n{\n\tft_putnbr(42);\n\treturn (0);\n}\n"
+    },
+    "ex08": {
+      "title": "ft_print_combn",
+      "description": "Display all n-digit combinations (n between 1 and 9).",
+      "hints": ["Use recursion.", "Each digit must be strictly less than the next."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_print_combn(int n);",
+      "testInput": "",
+      "expectedOutput": "",
+      "starterCode": ""
+    }
+  },
+  "c01": {
+    "ex00": {
+      "title": "ft_ft",
+      "description": "Set a pointer to 42.",
+      "hints": ["Dereference with *nbr = 42."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_ft(int *nbr);",
+      "testInput": "",
+      "expectedOutput": "42",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_ft(int *nbr)\n{\n\t*nbr = 42;\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint n = 0;\n\tft_ft(&n);\n\tft_putnbr(n);\n\treturn (0);\n}\n"
+    },
+    "ex01": {
+      "title": "ft_ultimate_ft",
+      "description": "Set a pointer-to-pointer-to-pointer to 42.",
+      "hints": ["Use 9 levels of dereferencing."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_ultimate_ft(int *********nbr);",
+      "testInput": "",
+      "expectedOutput": "42",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_ultimate_ft(int *********nbr)\n{\n\t*********nbr = 42;\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint n = 0;\n\tint *p1 = &n, **p2 = &p1, ***p3 = &p2, ****p4 = &p3, *****p5 = &p4;\n\tint ******p6 = &p5, *******p7 = &p6, ********p8 = &p7, *********p9 = &p8;\n\tft_ultimate_ft(p9);\n\tft_putnbr(n);\n\treturn (0);\n}\n"
+    },
+    "ex02": {
+      "title": "ft_swap",
+      "description": "Swap the values of two integers.",
+      "hints": ["Use a temporary variable."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_swap(int *a, int *b);",
+      "testInput": "",
+      "expectedOutput": "53",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_swap(int *a, int *b)\n{\n\tint tmp = *a;\n\t*a = *b;\n\t*b = tmp;\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint a = 3, b = 5;\n\tft_swap(&a, &b);\n\tft_putnbr(a);\n\tft_putnbr(b);\n\treturn (0);\n}\n"
+    },
+    "ex03": {
+      "title": "ft_div_mod",
+      "description": "Compute division and modulo via pointers.",
+      "hints": ["Use *div = a / b; *mod = a % b;"],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_div_mod(int a, int b, int *div, int *mod);",
+      "testInput": "",
+      "expectedOutput": "31",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_div_mod(int a, int b, int *div, int *mod)\n{\n\t*div = a / b;\n\t*mod = a % b;\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint div = 0, mod = 0;\n\tft_div_mod(10, 3, &div, &mod);\n\tft_putnbr(div);\n\tft_putnbr(mod);\n\treturn (0);\n}\n"
+    },
+    "ex04": {
+      "title": "ft_ultimate_div_mod",
+      "description": "Replace *a with *a / *b and *b with *a % *b.",
+      "hints": ["Store original *a in a temp variable first."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_ultimate_div_mod(int *a, int *b);",
+      "testInput": "",
+      "expectedOutput": "31",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_ultimate_div_mod(int *a, int *b)\n{\n\tint tmp = *a;\n\t*a = tmp / *b;\n\t*b = tmp % *b;\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint a = 10, b = 3;\n\tft_ultimate_div_mod(&a, &b);\n\tft_putnbr(a);\n\tft_putnbr(b);\n\treturn (0);\n}\n"
+    },
+    "ex05": {
+      "title": "ft_putstr",
+      "description": "Display a string using pointers.",
+      "hints": ["Iterate until *str == '\\0'."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_putstr(char *str);",
+      "testInput": "",
+      "expectedOutput": "Hello World!",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_putstr(char *str)\n{\n\twhile (*str)\n\t{\n\t\twrite(1, str, 1);\n\t\tstr++;\n\t}\n}\n\nint main(void)\n{\n\tft_putstr(\"Hello World!\");\n\treturn (0);\n}\n"
+    },
+    "ex06": {
+      "title": "ft_strlen",
+      "description": "Return the length of a string.",
+      "hints": ["Count characters until '\\0'."],
+      "allowedFunctions": ["write"],
+      "prototype": "int ft_strlen(char *str);",
+      "testInput": "",
+      "expectedOutput": "13",
+      "starterCode": "#include <unistd.h>\n\nint ft_strlen(char *str)\n{\n\tint len = 0;\n\twhile (str[len])\n\t\tlen++;\n\treturn (len);\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tft_putnbr(ft_strlen(\"Hello World!\"));\n\treturn (0);\n}\n"
+    },
+    "ex07": {
+      "title": "ft_rev_int_tab",
+      "description": "Reverse an integer array in-place.",
+      "hints": ["Swap from both ends toward center."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_rev_int_tab(int *tab, int size);",
+      "testInput": "",
+      "expectedOutput": "54321",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_rev_int_tab(int *tab, int size)\n{\n\tint i = 0;\n\tint tmp;\n\twhile (i < size / 2)\n\t{\n\t\ttmp = tab[i];\n\t\ttab[i] = tab[size - 1 - i];\n\t\ttab[size - 1 - i] = tmp;\n\t\ti++;\n\t}\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint tab[5] = {1, 2, 3, 4, 5};\n\tint i = 0;\n\tft_rev_int_tab(tab, 5);\n\twhile (i < 5)\n\t{\n\t\tft_putnbr(tab[i]);\n\t\ti++;\n\t}\n\treturn (0);\n}\n"
+    },
+    "ex08": {
+      "title": "ft_sort_int_tab",
+      "description": "Sort an integer array in ascending order.",
+      "hints": ["Use bubble sort or any sorting algorithm."],
+      "allowedFunctions": ["write"],
+      "prototype": "void ft_sort_int_tab(int *tab, int size);",
+      "testInput": "",
+      "expectedOutput": "12345",
+      "starterCode": "#include <unistd.h>\n\nvoid ft_sort_int_tab(int *tab, int size)\n{\n\tint i = 0, j, tmp;\n\twhile (i < size - 1)\n\t{\n\t\tj = 0;\n\t\twhile (j < size - 1 - i)\n\t\t{\n\t\t\tif (tab[j] > tab[j + 1])\n\t\t\t{\n\t\t\t\ttmp = tab[j];\n\t\t\t\ttab[j] = tab[j + 1];\n\t\t\t\ttab[j + 1] = tmp;\n\t\t\t}\n\t\t\tj++;\n\t\t}\n\t\ti++;\n\t}\n}\n\nvoid ft_putnbr(int nb)\n{\n\tchar c;\n\tif (nb == -2147483648) { write(1, \"-2147483648\", 11); return; }\n\tif (nb < 0) { write(1, \"-\", 1); nb = -nb; }\n\tif (nb >= 10) ft_putnbr(nb / 10);\n\tc = nb % 10 + '0';\n\twrite(1, &c, 1);\n}\n\nint main(void)\n{\n\tint tab[5] = {3, 1, 5, 2, 4};\n\tint i = 0;\n\tft_sort_int_tab(tab, 5);\n\twhile (i < 5)\n\t{\n\t\tft_putnbr(tab[i]);\n\t\ti++;\n\t}\n\treturn (0);\n}\n"
+    }
+  },
+  "c02": {
+    "ex00": { "title": "ft_strcpy", "description": "Copy a string into a destination buffer.", "hints": ["Copy each character including the null terminator."], "allowedFunctions": ["write"], "prototype": "char *ft_strcpy(char *dest, char *src);", "testInput": "", "expectedOutput": "Hello", "starterCode": "#include <unistd.h>\n\nchar *ft_strcpy(char *dest, char *src)\n{\n\tint i = 0;\n\twhile (src[i])\n\t{\n\t\tdest[i] = src[i];\n\t\ti++;\n\t}\n\tdest[i] = '\\0';\n\treturn (dest);\n}\n\nvoid ft_putstr(char *s) { while (*s) write(1, s++, 1); }\n\nint main(void)\n{\n\tchar d[20];\n\tft_strcpy(d, \"Hello\");\n\tft_putstr(d);\n\treturn (0);\n}\n" },
+    "ex01": { "title": "ft_strncpy", "description": "Copy up to n characters.", "hints": ["If src is shorter than n, pad with nulls."], "allowedFunctions": ["write"], "prototype": "char *ft_strncpy(char *dest, char *src, unsigned int n);", "testInput": "", "expectedOutput": "Hel", "starterCode": "#include <unistd.h>\n\nchar *ft_strncpy(char *dest, char *src, unsigned int n)\n{\n\tunsigned int i = 0;\n\twhile (i < n && src[i])\n\t{\n\t\tdest[i] = src[i];\n\t\ti++;\n\t}\n\twhile (i < n)\n\t\tdest[i++] = '\\0';\n\treturn (dest);\n}\n\nvoid ft_putstr(char *s) { while (*s) write(1, s++, 1); }\n\nint main(void)\n{\n\tchar d[20];\n\tft_strncpy(d, \"Hello\", 3);\n\td[3] = '\\0';\n\tft_putstr(d);\n\treturn (0);\n}\n" },
+    "ex02": { "title": "ft_str_is_alpha", "description": "Return 1 if the string contains only alphabetic characters.", "hints": []},
+    "ex03": { "title": "ft_str_is_numeric", "description": "Return 1 if the string contains only digits.", "hints": []},
+    "ex04": { "title": "ft_str_is_lowercase", "description": "Return 1 if the string contains only lowercase characters.", "hints": []},
+    "ex05": { "title": "ft_str_is_uppercase", "description": "Return 1 if the string contains only uppercase characters.", "hints": []},
+    "ex06": { "title": "ft_str_is_printable", "description": "Return 1 if the string contains only printable characters.", "hints": []},
+    "ex07": { "title": "ft_strupcase", "description": "Convert a string to uppercase in-place.", "hints": []},
+    "ex08": { "title": "ft_strlowcase", "description": "Convert a string to lowercase in-place.", "hints": []},
+    "ex09": { "title": "ft_strcapitalize", "description": "Capitalize each word in a string.", "hints": []},
+    "ex10": { "title": "ft_strlcpy", "description": "Size-bounded string copy returning the length of src.", "hints": []},
+    "ex11": { "title": "ft_putstr_non_printable", "description": "Display a string with non-printable chars as \\xHH.", "hints": []},
+    "ex12": { "title": "ft_print_memory", "description": "Display memory contents in hex and ASCII.", "hints": []}
+  },
+  "c03": {
+    "ex00": { "title": "ft_strcmp", "description": "Compare two strings lexicographically. Returns difference between first differing chars.", "hints": []},
+    "ex01": { "title": "ft_strncmp", "description": "Compare up to n characters of two strings.", "hints": []},
+    "ex02": { "title": "ft_strcat", "description": "Concatenate src to dest and return dest.", "hints": []},
+    "ex03": { "title": "ft_strncat", "description": "Concatenate up to n characters of src to dest.", "hints": []},
+    "ex04": { "title": "ft_strstr", "description": "Locate a substring in a string, returning a pointer to the start.", "hints": []},
+    "ex05": { "title": "ft_strlcat", "description": "Size-bounded string concatenation returning total length.", "hints": []}
+  },
+  "c04": {
+    "ex00": { "title": "ft_strlen", "description": "Return the length of a string.", "hints": []},
+    "ex01": { "title": "ft_putstr", "description": "Display a string.", "hints": []},
+    "ex02": { "title": "ft_putnbr", "description": "Display an integer.", "hints": []},
+    "ex03": { "title": "ft_atoi", "description": "Convert a string to an integer, handling whitespace and signs.", "hints": []},
+    "ex04": { "title": "ft_putnbr_base", "description": "Display a number in any base (e.g. binary, hex).", "hints": []},
+    "ex05": { "title": "ft_atoi_base", "description": "Convert a string in any base to an integer.", "hints": []}
+  },
+  "c05": {
+    "ex00": { "title": "ft_iterative_factorial", "description": "Compute factorial iteratively.", "hints": []},
+    "ex01": { "title": "ft_recursive_factorial", "description": "Compute factorial recursively.", "hints": []},
+    "ex02": { "title": "ft_iterative_power", "description": "Compute nb^power iteratively.", "hints": []},
+    "ex03": { "title": "ft_recursive_power", "description": "Compute nb^power recursively.", "hints": []},
+    "ex04": { "title": "ft_fibonacci", "description": "Return the nth Fibonacci number (0-indexed).", "hints": []},
+    "ex05": { "title": "ft_sqrt", "description": "Return the integer square root of a number.", "hints": []},
+    "ex06": { "title": "ft_is_prime", "description": "Return 1 if the number is prime, 0 otherwise.", "hints": []},
+    "ex07": { "title": "ft_find_next_prime", "description": "Return the next prime number greater than or equal to nb.", "hints": []},
+    "ex08": { "title": "ft_ten_queens_puzzle", "description": "Solve the ten queens puzzle recursively.", "hints": []}
+  },
+  "c06": {
+    "ex00": { "title": "ft_print_program_name", "description": "Display the program's name.", "hints": []},
+    "ex01": { "title": "ft_print_params", "description": "Display all command-line arguments, each on a new line.", "hints": []},
+    "ex02": { "title": "ft_rev_params", "description": "Display arguments in reverse order.", "hints": []},
+    "ex03": { "title": "ft_sort_params", "description": "Sort and display arguments alphabetically.", "hints": []}
+  },
+  "c07": {
+    "ex00": { "title": "ft_strdup", "description": "Duplicate a string using malloc.", "hints": ["Remember to allocate strlen + 1 and copy the null terminator."], "allowedFunctions": ["malloc", "write"], "prototype": "char *ft_strdup(char *src);" },
+    "ex01": { "title": "ft_range", "description": "Return an array of ints from min to max (exclusive).", "hints": ["If min >= max, return NULL."], "allowedFunctions": ["malloc", "write"], "prototype": "int *ft_range(int min, int max);" },
+    "ex02": { "title": "ft_ultimate_range", "description": "Like ft_range but returns size via a pointer-to-pointer.", "hints": []},
+    "ex03": { "title": "ft_strjoin", "description": "Concatenate an array of strings with a separator.", "hints": []},
+    "ex04": { "title": "ft_convert_base", "description": "Convert a number from one base to another.", "hints": []},
+    "ex05": { "title": "ft_split", "description": "Split a string by a charset into an array of strings.", "hints": []}
+  },
+  "c08": {
+    "ex00": { "title": "ft.h", "description": "Create a header file with all function prototypes." },
+    "ex01": { "title": "ft_boolean.h", "description": "Define TRUE, FALSE, and boolean type using macros." },
+    "ex02": { "title": "ft_abs.h", "description": "Define a macro ABS for absolute value." },
+    "ex03": { "title": "ft_point.h", "description": "Create a t_point structure with x/y coordinates." },
+    "ex04": { "title": "ft_stock_str.h", "description": "Define t_stock_str structure with size, string, and copy." },
+    "ex05": { "title": "ft_show_tab", "description": "Display contents of a t_stock_str array." }
+  },
+  "c09": {
+    "ex00": { "title": "libft.a", "description": "Create a static library with a Makefile." },
+    "ex01": { "title": "Makefile", "description": "Write a Makefile with CC, CFLAGS, and rules." }
+  },
+  "c10": {
+    "ex00": { "title": "display_file", "description": "Display a file's contents using read/write." },
+    "ex01": { "title": "cat (ft_cat)", "description": "Implement cat with multiple file support." },
+    "ex02": { "title": "tail", "description": "Display the last N lines of a file." },
+    "ex03": { "title": "hexdump", "description": "Display file contents in hexadecimal." },
+    "ex04": { "title": "ft_putchar_fd", "description": "Write a character to a file descriptor.", "allowedFunctions": ["write"], "prototype": "void ft_putchar_fd(char c, int fd);" },
+    "ex05": { "title": "ft_putstr_fd", "description": "Write a string to a file descriptor.", "allowedFunctions": ["write"], "prototype": "void ft_putstr_fd(char *s, int fd);" },
+    "ex06": { "title": "ft_putnbr_fd", "description": "Write an integer to a file descriptor.", "allowedFunctions": ["write"], "prototype": "void ft_putnbr_fd(int n, int fd);" }
+  },
+  "c11": {
+    "ex00": { "title": "ft_foreach", "description": "Apply a function to each element of an integer array." },
+    "ex01": { "title": "ft_map", "description": "Create a new array by applying a function to each element." },
+    "ex02": { "title": "ft_any", "description": "Check if any element in an array satisfies a condition." },
+    "ex03": { "title": "ft_count_if", "description": "Count elements satisfying a condition." },
+    "ex04": { "title": "ft_is_sort", "description": "Check if an array is sorted." },
+    "ex05": { "title": "do-op (basic)", "description": "Simple calculator using function pointers." },
+    "ex06": { "title": "do-op (advanced)", "description": "Extended calculator with more operations." },
+    "ex07": { "title": "ft_advanced_sort_string_tab", "description": "Sort strings using a custom comparator." }
+  },
+  "c12": {
+    "ex00": { "title": "ft_create_elem", "description": "Allocate and initialize a new list node." },
+    "ex01": { "title": "ft_list_push_front", "description": "Insert a node at the beginning of a list." },
+    "ex02": { "title": "ft_list_size", "description": "Return the number of elements in a list." },
+    "ex03": { "title": "ft_list_last", "description": "Return the last node of a list." },
+    "ex04": { "title": "ft_list_push_back", "description": "Insert a node at the end of a list." },
+    "ex05": { "title": "ft_list_push_strs", "description": "Create a list from a string array." },
+    "ex06": { "title": "ft_list_clear", "description": "Delete all nodes and free data." },
+    "ex07": { "title": "ft_list_at", "description": "Return the Nth node of a list." },
+    "ex08": { "title": "ft_list_reverse", "description": "Reverse a list in-place." },
+    "ex09": { "title": "ft_list_foreach", "description": "Apply a function to each node's data." },
+    "ex10": { "title": "ft_list_foreach_if", "description": "Apply a function to matching nodes." },
+    "ex11": { "title": "ft_list_find", "description": "Return the first matching node." },
+    "ex12": { "title": "ft_list_remove_if", "description": "Remove nodes matching a condition." },
+    "ex13": { "title": "ft_list_merge", "description": "Append one list to another." },
+    "ex14": { "title": "ft_list_sort", "description": "Sort a list using a comparison function." },
+    "ex15": { "title": "ft_list_reverse_fun", "description": "Reverse data by swapping node contents." },
+    "ex16": { "title": "ft_sorted_list_insert", "description": "Insert into a sorted list." },
+    "ex17": { "title": "ft_sorted_list_merge", "description": "Merge two sorted lists." }
+  },
+  "c13": {
+    "ex00": { "title": "btree_create_node", "description": "Allocate and initialize a binary tree node." },
+    "ex01": { "title": "btree_insert_data", "description": "Insert data into a BST." },
+    "ex02": { "title": "btree_apply_infix", "description": "Infix traversal (left, node, right)." },
+    "ex03": { "title": "btree_apply_prefix", "description": "Prefix traversal (node, left, right)." },
+    "ex04": { "title": "btree_apply_postfix", "description": "Postfix traversal (left, right, node)." },
+    "ex05": { "title": "btree_search_item", "description": "Search for an item in a BST." },
+    "ex06": { "title": "btree_level_count", "description": "Return the height of a tree." },
+    "ex07": { "title": "btree_insert_data_r", "description": "Insert using pointer-to-pointer." },
+    "ex08": { "title": "btree_apply_by_level", "description": "Apply function by tree level." }
+  },
+  "shell00": {
+    "ex00": { "title": "Z", "description": "Create a file called Z that displays 'Z' when cat'd." },
+    "ex01": { "title": "testShell00", "description": "Create a file with specific properties (size, permissions, timestamp)." },
+    "ex02": { "title": "Oh yeah, moooore", "description": "Use file display commands to show specific content." },
+    "ex03": { "title": "SSH me", "description": "Generate and configure an SSH key pair." },
+    "ex04": { "title": "midLS", "description": "Use ls with specific flags for custom output." },
+    "ex05": { "title": "GiT commit", "description": "List Git commit logs in a specific format." },
+    "ex06": { "title": "gitignore", "description": "Create Git ignore rules for specific file patterns." },
+    "ex07": { "title": "diff", "description": "Create a patch file from a diff between two files." },
+    "ex08": { "title": "clean", "description": "Write a script to clean temporary files." },
+    "ex09": { "title": "Illusions", "description": "Create a magic file for the file command." }
+  },
+  "shell01": {
+    "ex01": { "title": "print_groups", "description": "Display groups of a given user." },
+    "ex02": { "title": "find_sh", "description": "Find all .sh files and display names without extension." },
+    "ex03": { "title": "count_files", "description": "Count all files and directories including hidden." },
+    "ex04": { "title": "MAC", "description": "Display machine's MAC addresses." },
+    "ex05": { "title": "Can you create it?", "description": "Create file with specific content using env vars." },
+    "ex06": { "title": "Skip", "description": "Display specific lines from a file/command output." },
+    "ex07": { "title": "r_dwssap", "description": "Process command output and display specific fields." },
+    "ex08": { "title": "add_chelou", "description": "Perform complex arithmetic or string manipulation." }
+  }
+}

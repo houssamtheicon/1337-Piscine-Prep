@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Techniques — 1337 Piscine Prep</title>
+  <meta name="description" content="Debugging techniques for 1337 Piscine: GDB, Valgrind, Address Sanitizer, segfault troubleshooting, and printf debugging strategy.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/resources/">Resources</a>
+        <span class="sep">/</span>
+        <span>Debugging</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Debugging Techniques</h1>
+        <p>Segfaults, bus errors, memory leaks — every Pisciner faces them. Here are the essential tools and strategies for debugging C programs effectively.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Using GDB</h2>
+        <p>GDB (GNU Debugger) lets you step through your program, inspect variables, and find exactly where a crash occurs.</p>
+        <pre><code># Compile with debug symbols
+gcc -Wall -Wextra -Werror -g -o program file.c
+
+# Start GDB
+gdb ./program
+
+# Common GDB commands inside the debugger:
+run              # Run the program
+break main       # Set breakpoint at main
+break file.c:42  # Set breakpoint at line 42
+step             # Step into function call
+next             # Step over function call
+print x          # Print value of variable x
+backtrace        # Show call stack
+continue         # Continue execution
+quit             # Exit GDB</code></pre>
+        <div class="callout callout-info">
+          <p><strong>Tip:</strong> When a segfault occurs, run <code>bt</code> (backtrace) in GDB to see the exact function call chain that led to the crash.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Using Valgrind</h2>
+        <p>Valgrind detects memory leaks, invalid reads/writes, and use-after-free errors.</p>
+        <pre><code># Basic memory check
+valgrind ./program
+
+# Full leak detection
+valgrind --leak-check=full ./program
+
+# Show details of every leak
+valgrind --leak-check=full --show-leak-kinds=all ./program
+
+# Track origins of uninitialized values
+valgrind --track-origins=yes ./program</code></pre>
+        <p>Valgrind output shows each leak with a stack trace. Look for <code>definitely lost</code> blocks — those are leaks you must fix.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Using Address Sanitizer</h2>
+        <p>Address Sanitizer is a fast memory error detector built into GCC. It catches buffer overflows, use-after-free, and more.</p>
+        <pre><code>gcc -Wall -Wextra -Werror -g -fsanitize=address -o program file.c
+./program</code></pre>
+        <p>When an error is detected, the program prints a detailed report showing the type of error, the memory address, and a stack trace.</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Debugging Patterns</h2>
+        <table>
+          <thead>
+            <tr><th>Issue</th><th>Likely Cause</th><th>How to Debug</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Segfault</td><td>NULL pointer dereference, buffer overflow, stack overflow</td><td>Run in GDB, get backtrace</td></tr>
+            <tr><td>Bus error</td><td>Misaligned memory access, accessing unmapped memory</td><td>Check pointer alignment, verify mmap usage</td></tr>
+            <tr><td>Double free</td><td>Calling free() twice on same pointer</td><td>Run Valgrind, trace free calls</td></tr>
+            <tr><td>Buffer overflow</td><td>Writing beyond allocated memory</td><td>Use Address Sanitizer</td></tr>
+            <tr><td>Memory leak</td><td>Allocated memory never freed</td><td>Run Valgrind --leak-check=full</td></tr>
+            <tr><td>Use-after-free</td><td>Accessing memory after freeing it</td><td>Address Sanitizer or Valgrind</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="module-section">
+        <h2>Printf Debugging</h2>
+        <p>When you cannot use GDB or Valgrind, strategic <code>printf</code> (or <code>ft_putstr</code>/<code>ft_putnbr</code>) statements can isolate issues:</p>
+        <pre><code>// Print variable values at key points
+ft_putstr("Entering loop, i = ");
+ft_putnbr(i);
+ft_putchar('\n');
+
+// Print before and after a suspicious operation
+ft_putstr("Before malloc\n");
+ptr = malloc(size);
+ft_putstr("After malloc\n");
+
+// Confirm function entry/exit
+ft_putstr("ft_strdup called with: ");
+ft_putstr(src);
+ft_putchar('\n');</code></pre>
+        <div class="callout callout-warning">
+          <p><strong>Remember:</strong> Remove all debug <code>printf</code>/<code>ft_putstr</code> calls before submission. They violate the Norm if left in.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Debugging with assert</h2>
+        <p>Use <code>assert</code> from <code>&lt;assert.h&gt;</code> to validate assumptions during development:</p>
+        <pre><code>#include &lt;assert.h&gt;
+
+int     ft_strlen(char *str)
+{
+    int len;
+
+    assert(str != NULL);  // Crash if str is NULL
+    len = 0;
+    while (str[len])
+        len++;
+    return (len);
+}</code></pre>
+        <p>Assertions are disabled when compiling with <code>-DNDEBUG</code>, so they do not affect the final submission binary.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

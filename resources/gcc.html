@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCC Compilation Guide — 1337 Piscine Prep</title>
+  <meta name="description" content="GCC compilation flags guide for 1337 Piscine: -Wall -Wextra -Werror, object files, linking, debug symbols, sanitizers, and optimization.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/resources/">Resources</a>
+        <span class="sep">/</span>
+        <span>GCC Guide</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>GCC Compilation Guide</h1>
+        <p>Understanding GCC flags is essential for compiling your C projects correctly and debugging them effectively during the Piscine.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Standard Compilation Flags</h2>
+        <p>The Piscine enforces strict compilation with these mandatory flags:</p>
+        <pre><code>gcc -Wall -Wextra -Werror -o program file1.c file2.c</code></pre>
+        <table>
+          <thead>
+            <tr><th>Flag</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>-Wall</code></td><td>Enable most common compiler warnings</td></tr>
+            <tr><td><code>-Wextra</code></td><td>Enable additional warnings beyond -Wall</td></tr>
+            <tr><td><code>-Werror</code></td><td>Treat all warnings as errors — compilation fails if any warning exists</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-warning">
+          <p><strong>Note:</strong> Since <code>-Werror</code> treats warnings as errors, your code must compile with zero warnings. This is checked during evaluation.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Creating Object Files</h2>
+        <p>Use the <code>-c</code> flag to compile source files into object files without linking:</p>
+        <pre><code>gcc -Wall -Wextra -Werror -c ft_putchar.c   # produces ft_putchar.o
+gcc -Wall -Wextra -Werror -c ft_putstr.c    # produces ft_putstr.o</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Linking Libraries</h2>
+        <p>Link object files and libraries into a final executable:</p>
+        <pre><code># Link object files
+gcc -o program main.o ft_putchar.o ft_putstr.o
+
+# Link against a library
+gcc -o program main.o -L/path/to/lib -lmylib</code></pre>
+        <p><code>-L</code> specifies the library directory, <code>-l</code> specifies the library name (without <code>lib</code> prefix or <code>.a</code> suffix).</p>
+      </section>
+
+      <section class="module-section">
+        <h2>Debug Symbols</h2>
+        <p>Add the <code>-g</code> flag to include debug symbols for GDB:</p>
+        <pre><code>gcc -Wall -Wextra -Werror -g -o program file.c</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Sanitizers</h2>
+        <p>Sanitizers help detect memory errors at runtime. Use them during development:</p>
+        <pre><code># Address sanitizer — detects buffer overflows, use-after-free
+gcc -Wall -Wextra -Werror -g -fsanitize=address -o program file.c
+
+# Leak sanitizer — detects memory leaks
+gcc -Wall -Wextra -Werror -g -fsanitize=leak -o program file.c</code></pre>
+        <div class="callout callout-info">
+          <p><strong>Tip:</strong> Sanitizers can slow execution significantly. Use them for testing and disable them for the final submission binary.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Optimization Levels</h2>
+        <table>
+          <thead>
+            <tr><th>Level</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>-O0</code></td><td>No optimization (default). Best for debugging.</td></tr>
+            <tr><td><code>-O1</code></td><td>Basic optimization — reduces code size and execution time.</td></tr>
+            <tr><td><code>-O2</code></td><td>Further optimization — balances speed and size.</td></tr>
+            <tr><td><code>-O3</code></td><td>Maximum optimization — can increase binary size.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="module-section">
+        <h2>Preprocessor &amp; Assembly</h2>
+        <pre><code># Run preprocessor only (expands macros, includes)
+gcc -E file.c -o file.i
+
+# Compile to assembly only
+gcc -S file.c -o file.s</code></pre>
+      </section>
+
+      <section class="module-section">
+        <h2>Example Makefile Integration</h2>
+        <pre><code>CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SRCS = main.c ft_putchar.c ft_putstr.c
+OBJS = $(SRCS:.c=.o)
+NAME = program
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all</code></pre>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C03 — String Comparison &amp; Memory | C Days — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/c-days/">C Days</a>
+        <span class="sep">/</span>
+        <span>C03</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C03 — String Comparison &amp; Memory</h1>
+      </div>
+
+      <section class="module-section">
+        <p>C03 focuses on string comparison and concatenation functions. You will implement <code>ft_strcmp</code>, <code>ft_strcat</code>, <code>ft_strstr</code>, and the size-bounded <code>ft_strlcat</code>. Understanding the return value semantics of these functions is critical for avoiding bugs.</p>
+
+        <h2>Concepts</h2>
+        <div class="concept-list">
+          <span class="tag">String Compare (strcmp)</span>
+          <span class="tag">String Compare (strncmp)</span>
+          <span class="tag">String Concatenate (strcat)</span>
+          <span class="tag">String Concatenate (strncat)</span>
+          <span class="tag">Memory (strlcat/seglen)</span>
+        </div>
+
+        <h2>Exercises</h2>
+
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/0 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c03')" style="margin-bottom:1rem;">Reset progress</button>
+
+        <ul class="exercise-list">
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex00: ft_strcmp</span><br>
+              <span class="ex-desc">Compare two strings lexicographically</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex01: ft_strncmp</span><br>
+              <span class="ex-desc">Compare up to n characters of two strings</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex02: ft_strcat</span><br>
+              <span class="ex-desc">Concatenate two strings</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex03: ft_strncat</span><br>
+              <span class="ex-desc">Concatenate up to n characters</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex04: ft_strstr</span><br>
+              <span class="ex-desc">Locate a substring in a string</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex05: ft_strlcat</span><br>
+              <span class="ex-desc">Size-bounded string concatenation</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Compile &amp; Test</h2>
+        <pre><code># Test ft_strcmp
+cc -Wall -Wextra -Werror ex00/ft_strcmp.c -o test_strcmp
+
+# Test with main
+echo 'int ft_strcmp(char *s1,char *s2);int main(){return ft_strcmp("abc","abd");}' > main.c \
+  && cc -Wall -Wextra -Werror main.c ex00/ft_strcmp.c -o test \
+  && ./test; echo $?</code></pre>
+
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Return value semantics:</strong> <code>strcmp</code> returns 0 when strings are equal, not 1. Many beginners write <code>if (ft_strcmp(a, b))</code> thinking it checks equality — it checks inequality.</li>
+          <li><strong>Buffer sizes in strlcat:</strong> <code>ft_strlcat</code> takes the full buffer size including the null terminator. The return value is the total length it tried to create.</li>
+          <li><strong>Overlapping memory:</strong> <code>strcat</code> assumes no overlap between source and destination. Overlapping leads to undefined behaviour.</li>
+          <li><strong>Null pointer inputs:</strong> The standard functions crash on NULL. Decide whether your implementation should handle it gracefully.</li>
+        </ul>
+
+        <h2>Peer-Eval Reminders</h2>
+        <div class="callout callout-warning">
+          <p><strong>Check these during evaluation:</strong> Does <code>ft_strcmp</code> return the correct difference for unequal strings? Does <code>ft_strstr</code> return NULL when the substring is not found? Does <code>ft_strlcat</code> handle the case where destination is already full? Are edge cases tested (empty strings, n=0)?</p>
+        </div>
+
+        <h2>Practice for Exams</h2>
+        <ul>
+          <li><a href="/exams/">Exam 01</a> — string comparison in exam exercises</li>
+          <li><a href="/exams/">Exam 02</a> — memory-aware string operations</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c03',6);});</script>
+</body>
+</html>

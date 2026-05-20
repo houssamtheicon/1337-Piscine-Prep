@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Programming Modules — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span>C Days</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C Programming Modules</h1>
+        <p>14 core C modules covering everything from basic output to linked lists. Each module builds on the previous.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="1">Week 1</button>
+        <button class="filter-btn" data-filter="2">Week 2</button>
+        <button class="filter-btn" data-filter="3">Week 3</button>
+        <button class="filter-btn" data-filter="4">Week 4</button>
+      </div>
+
+      <div class="card-grid">
+        <a href="/c-days/c00.html" class="card card-interactive" data-week="1">
+          <h3>C00 — Basic Output &amp; Functions</h3>
+          <p>Introduction to C programming — write your first functions, loops, and conditionals. Build fundamental output routines.</p>
+          <div class="card-meta">
+            <span class="tag">Week 1</span>
+            <span class="tag">Basic I/O</span>
+            <span class="tag">Loops</span>
+          </div>
+        </a>
+        <a href="/c-days/c01.html" class="card card-interactive" data-week="1">
+          <h3>C01 — Pointers &amp; Memory</h3>
+          <p>Master pointers, memory addresses, and references. Learn to swap values and manipulate data through pointers.</p>
+          <div class="card-meta">
+            <span class="tag">Week 1</span>
+            <span class="tag">Pointers</span>
+            <span class="tag">Memory</span>
+          </div>
+        </a>
+        <a href="/c-days/c02.html" class="card card-interactive" data-week="1">
+          <h3>C02 — String Manipulation</h3>
+          <p>Build string utility functions — copy, compare, classify, and transform character arrays.</p>
+          <div class="card-meta">
+            <span class="tag">Week 1</span>
+            <span class="tag">Strings</span>
+            <span class="tag">Character Classification</span>
+          </div>
+        </a>
+        <a href="/c-days/c03.html" class="card card-interactive" data-week="2">
+          <h3>C03 — String Comparison &amp; Memory</h3>
+          <p>Implement string comparison, concatenation, and substring search functions.</p>
+          <div class="card-meta">
+            <span class="tag">Week 2</span>
+            <span class="tag">Strings</span>
+            <span class="tag">Comparison</span>
+          </div>
+        </a>
+        <a href="/c-days/c04.html" class="card card-interactive" data-week="2">
+          <h3>C04 — Advanced Strings &amp; atoi</h3>
+          <p>Build ft_atoi, ft_putnbr_base, and ft_atoi_base — string-to-number conversion and base representation.</p>
+          <div class="card-meta">
+            <span class="tag">Week 2</span>
+            <span class="tag">atoi</span>
+            <span class="tag">Number Conversion</span>
+          </div>
+        </a>
+        <a href="/c-days/c05.html" class="card card-interactive" data-week="2">
+          <h3>C05 — Recursion &amp; Math</h3>
+          <p>Dive into recursion with factorial, power, fibonacci, prime detection, and the ten queens puzzle.</p>
+          <div class="card-meta">
+            <span class="tag">Week 2</span>
+            <span class="tag">Recursion</span>
+            <span class="tag">Math</span>
+          </div>
+        </a>
+        <a href="/c-days/c06.html" class="card card-interactive" data-week="2">
+          <h3>C06 — Program Arguments</h3>
+          <p>Work with argc and argv — access, display, reverse, and sort command-line arguments.</p>
+          <div class="card-meta">
+            <span class="tag">Week 2</span>
+            <span class="tag">argc/argv</span>
+            <span class="tag">Sorting</span>
+          </div>
+        </a>
+        <a href="/c-days/c07.html" class="card card-interactive" data-week="3">
+          <h3>C07 — Memory Allocation</h3>
+          <p>Dynamic memory with malloc — duplicate strings, concatenate, and build arrays of variable size.</p>
+          <div class="card-meta">
+            <span class="tag">Week 3</span>
+            <span class="tag">malloc</span>
+            <span class="tag">Memory</span>
+          </div>
+        </a>
+        <a href="/c-days/c08.html" class="card card-interactive" data-week="3">
+          <h3>C08 — Headers &amp; Structures</h3>
+          <p>Organise code with header files, macros, and custom struct types.</p>
+          <div class="card-meta">
+            <span class="tag">Week 3</span>
+            <span class="tag">Headers</span>
+            <span class="tag">Structures</span>
+          </div>
+        </a>
+        <a href="/c-days/c09.html" class="card card-interactive" data-week="3">
+          <h3>C09 — Makefiles &amp; Libraries</h3>
+          <p>Create static libraries and automate compilation with Makefiles.</p>
+          <div class="card-meta">
+            <span class="tag">Week 3</span>
+            <span class="tag">Makefile</span>
+            <span class="tag">Library</span>
+          </div>
+        </a>
+        <a href="/c-days/c10.html" class="card card-interactive" data-week="3">
+          <h3>C10 — File I/O</h3>
+          <p>Read and write files using file descriptors — implement cat, tail, and hexdump clones.</p>
+          <div class="card-meta">
+            <span class="tag">Week 3</span>
+            <span class="tag">File Descriptors</span>
+            <span class="tag">I/O</span>
+          </div>
+        </a>
+        <a href="/c-days/c11.html" class="card card-interactive" data-week="4">
+          <h3>C11 — Function Pointers</h3>
+          <p>Pass functions as arguments — implement foreach, map, and sort with callbacks.</p>
+          <div class="card-meta">
+            <span class="tag">Week 4</span>
+            <span class="tag">Function Pointers</span>
+            <span class="tag">Callbacks</span>
+          </div>
+        </a>
+        <a href="/c-days/c12.html" class="card card-interactive" data-week="4">
+          <h3>C12 — Singly Linked Lists</h3>
+          <p>Build and manipulate singly linked lists — create, insert, delete, and search.</p>
+          <div class="card-meta">
+            <span class="tag">Week 4</span>
+            <span class="tag">Linked Lists</span>
+            <span class="tag">Dynamic Structures</span>
+          </div>
+        </a>
+        <a href="/c-days/c13.html" class="card card-interactive" data-week="4">
+          <h3>C13 — Doubly Linked Lists</h3>
+          <p>Advanced list operations with doubly linked lists — bidirectional traversal and complex insertions.</p>
+          <div class="card-meta">
+            <span class="tag">Week 4</span>
+            <span class="tag">Doubly Linked Lists</span>
+            <span class="tag">Advanced</span>
+          </div>
+        </a>
+      </div>
+
+      <h2>Module Quick Reference</h2>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Topic</th>
+              <th>Week</th>
+              <th>Exercises</th>
+              <th>Key Skills</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C00</td><td>Basic Output &amp; Functions</td><td>1</td><td>9</td><td>putchar, loops, conditions</td></tr>
+            <tr><td>C01</td><td>Pointers &amp; Memory</td><td>1</td><td>9</td><td>pointers, addresses, swap</td></tr>
+            <tr><td>C02</td><td>String Manipulation</td><td>1</td><td>13</td><td>string copy, classification, case</td></tr>
+            <tr><td>C03</td><td>String Comparison &amp; Memory</td><td>2</td><td>6</td><td>strcmp, strcat, strstr</td></tr>
+            <tr><td>C04</td><td>Advanced Strings &amp; atoi</td><td>2</td><td>6</td><td>atoi, putnbr_base, atoi_base</td></tr>
+            <tr><td>C05</td><td>Recursion &amp; Math</td><td>2</td><td>9</td><td>factorial, power, fibonacci, primes</td></tr>
+            <tr><td>C06</td><td>Program Arguments</td><td>2</td><td>4</td><td>argc, argv, sorting</td></tr>
+            <tr><td>C07</td><td>Memory Allocation</td><td>3</td><td>5</td><td>malloc, string duplication, arrays</td></tr>
+            <tr><td>C08</td><td>Headers &amp; Structures</td><td>3</td><td>6</td><td>header files, macros, structs</td></tr>
+            <tr><td>C09</td><td>Makefiles &amp; Libraries</td><td>3</td><td>3</td><td>Makefile, static library</td></tr>
+            <tr><td>C10</td><td>File I/O</td><td>3</td><td>4</td><td>file descriptors, read, write</td></tr>
+            <tr><td>C11</td><td>Function Pointers</td><td>4</td><td>6</td><td>function pointers, callbacks</td></tr>
+            <tr><td>C12</td><td>Singly Linked Lists</td><td>4</td><td>17</td><td>list creation, insertion, deletion</td></tr>
+            <tr><td>C13</td><td>Doubly Linked Lists</td><td>4</td><td>9</td><td>doubly linked lists, advanced ops</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

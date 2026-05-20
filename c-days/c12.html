@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 12 — Singly Linked Lists — 1337 Piscine Prep</title>
+  <meta name="description" content="C 12 module: singly linked lists, t_list, nodes, list traversal, insertion, deletion, sorting for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/c-days/">C Days</a></li>
+          <li><span aria-current="page">C 12</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>C 12 — Singly Linked Lists</h1>
+        <p>C 12 is the largest C module — it covers singly linked lists in depth. You will implement 17 functions that create, traverse, insert, delete, sort, and merge linked list nodes (<code>t_list</code>). Mastering C 12 is critical for the final exam.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="concept-list">
+          <span class="tag">Linked Lists</span>
+          <span class="tag">t_list</span>
+          <span class="tag">Nodes</span>
+          <span class="tag">List Traversal</span>
+          <span class="tag">List Insertion</span>
+          <span class="tag">List Deletion</span>
+          <span class="tag">List Sorting</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/18 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c12')" style="margin-bottom:1rem;">Reset progress</button>
+        <ul class="exercise-list">
+          <li>
+            <div>
+              <span class="ex-name">ex00: ft_create_elem</span><br>
+              <span class="ex-desc">Allocate and initialize a new list node</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex01: ft_list_push_front</span><br>
+              <span class="ex-desc">Insert a new node at the beginning of the list</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex02: ft_list_size</span><br>
+              <span class="ex-desc">Return the number of elements in a list</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex03: ft_list_last</span><br>
+              <span class="ex-desc">Return the last node of a list</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex04: ft_list_push_back</span><br>
+              <span class="ex-desc">Insert a new node at the end of the list</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex05: ft_list_push_strs</span><br>
+              <span class="ex-desc">Create a list from a string array (push_front in loop)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex06: ft_list_clear</span><br>
+              <span class="ex-desc">Delete all nodes and free their data</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex07: ft_list_at</span><br>
+              <span class="ex-desc">Return the Nth node of a list (0-indexed)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex08: ft_list_reverse</span><br>
+              <span class="ex-desc">Reverse the order of nodes in a list in-place</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex09: ft_list_foreach</span><br>
+              <span class="ex-desc">Apply a function to data in each node</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex10: ft_list_foreach_if</span><br>
+              <span class="ex-desc">Apply a function to nodes matching a condition</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex11: ft_list_find</span><br>
+              <span class="ex-desc">Return the first node whose data matches a comparison</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex12: ft_list_remove_if</span><br>
+              <span class="ex-desc">Remove nodes whose data matches a condition</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex13: ft_list_merge</span><br>
+              <span class="ex-desc">Append one list to the end of another</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex14: ft_list_sort</span><br>
+              <span class="ex-desc">Sort a list using a comparison function</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex15: ft_list_reverse_fun</span><br>
+              <span class="ex-desc">Reverse the data in a list by swapping node contents</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex16: ft_sorted_list_insert</span><br>
+              <span class="ex-desc">Insert a node into a sorted list maintaining order</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex17: ft_sorted_list_merge</span><br>
+              <span class="ex-desc">Merge two sorted lists into one sorted list</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Compile & Test</h2>
+        <pre><code># Test basic operations
+gcc -Wall -Wextra -Werror -o test_list ex00/ft_create_elem.c ex01/ft_list_push_front.c ex02/ft_list_size.c main.c
+
+# Test sorting and merging
+gcc -Wall -Wextra -Werror -o test_sort ex14/ft_list_sort.c ex16/ft_sorted_list_insert.c ex17/ft_sorted_list_merge.c main.c
+
+# Check for memory leaks
+valgrind --leak-check=full ./test_list
+valgrind --leak-check=full ./test_sort</code></pre>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>NULL pointer dereference:</strong> Always check if a node or list pointer is <code>NULL</code> before accessing <code>next</code> or <code>data</code>.</li>
+          <li><strong>Circular references:</strong> When reversing or sorting, ensure you do not create loops by incorrectly setting <code>next</code> pointers.</li>
+          <li><strong>Memory leaks on deletion:</strong> In <code>ft_list_clear</code>, free each node's <code>data</code> (via <code>free_fct</code>) before freeing the node itself.</li>
+          <li><strong>Sorting linked lists:</strong> Merge sort is the most efficient for linked lists. Bubble sort works but is slow for large lists.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-info">
+          <p><strong>Peer Evaluation Tip:</strong> This is the largest module — expect thorough testing. Run <code>valgrind</code> on every exercise. Test edge cases: empty lists, single-element lists, lists with duplicate values, and very long lists. Verify that <code>ft_list_remove_if</code> correctly frees removed nodes.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Final Exam</h3>
+            <p>Linked list exercises are a staple of the final exam at levels 3-4.</p>
+            <a href="/exams/final.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>C 13 — Advanced Structures</h3>
+            <p>Continue with doubly linked lists and binary trees.</p>
+            <a href="/c-days/c13.html" class="btn btn-sm btn-outline">Next Module</a>
+          </div>
+          <div class="card">
+            <h3>Exam 02</h3>
+            <p>Linked list exercises appear in the third machine exam.</p>
+            <a href="/exams/exam02.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c12',18);});</script>
+</body>
+</html>

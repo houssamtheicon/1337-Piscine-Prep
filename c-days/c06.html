@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C06 — Program Arguments | C Days — 1337 Piscine Prep</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main-content" class="main-content">
+    <div class="container container-narrow">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/c-days/">C Days</a>
+        <span class="sep">/</span>
+        <span>C06</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>C06 — Program Arguments</h1>
+      </div>
+
+      <section class="module-section">
+        <p>C06 teaches you to handle command-line arguments via the <code>main(int argc, char **argv)</code> signature. You will write programs that access, display, reverse, and sort the arguments passed to them. This module is relatively short but essential for understanding how C programs interact with their environment.</p>
+
+        <h2>Concepts</h2>
+        <div class="concept-list">
+          <span class="tag">argc</span>
+          <span class="tag">argv</span>
+          <span class="tag">Program Arguments</span>
+          <span class="tag">Sorting</span>
+        </div>
+
+        <h2>Exercises</h2>
+
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/0 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c06')" style="margin-bottom:1rem;">Reset progress</button>
+
+        <ul class="exercise-list">
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex00: ft_print_program_name</span><br>
+              <span class="ex-desc">Display the program's name</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex01: ft_print_params</span><br>
+              <span class="ex-desc">Display all command-line arguments</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex02: ft_rev_params</span><br>
+              <span class="ex-desc">Display arguments in reverse order</span>
+            </div>
+          </li>
+          <li>
+            <span class="ex-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+            <div>
+              <span class="ex-name">ex03: ft_sort_params</span><br>
+              <span class="ex-desc">Sort and display arguments alphabetically</span>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Compile &amp; Test</h2>
+        <pre><code># Compile any exercise as a program
+cc -Wall -Wextra -Werror ex00/ft_print_program_name.c -o print_name
+
+# Test with arguments
+./print_name
+./print_name hello world
+
+# Test ft_sort_params
+cc -Wall -Wextra -Werror ex03/ft_sort_params.c -o sort_params
+./sort_param z b c a</code></pre>
+
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>argv[0] is the program name:</strong> The first argument <code>argv[0]</code> is the program name itself, not the first user-provided argument. User arguments start at <code>argv[1]</code>.</li>
+          <li><strong>argc includes the program name:</strong> If you run <code>./a.out one two</code>, <code>argc</code> is 3 (<code>./a.out</code>, <code>one</code>, <code>two</code>), not 2.</li>
+          <li><strong>Null termination of argv:</strong> <code>argv[argc]</code> is guaranteed to be NULL. You can use this as a sentinel in loops.</li>
+          <li><strong>Sorting strings:</strong> Use <code>ft_strcmp</code> (or a local implementation) to compare strings. Remember that <code>strcmp</code> returns 0 when equal.</li>
+        </ul>
+
+        <h2>Peer-Eval Reminders</h2>
+        <div class="callout callout-warning">
+          <p><strong>Check these during evaluation:</strong> Does the program compile as a standalone executable? Does it use the correct <code>main</code> signature? Does <code>ft_print_program_name</code> display only the name (not the path)? Does <code>ft_sort_params</code> handle duplicate arguments? Are arguments printed each on a separate line?</p>
+        </div>
+
+        <h2>Practice for Exams</h2>
+        <ul>
+          <li><a href="/exams/">Exam 01</a> — argument-based exercises</li>
+          <li><a href="/exams/">Exam 02</a> — programs that process arguments</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c06',4);});</script>
+</body>
+</html>

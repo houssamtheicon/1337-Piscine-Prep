@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell 00 — Unix Basics — 1337 Piscine Prep</title>
+  <meta name="description" content="Shell 00 module: Unix fundamentals including navigation, file operations, permissions, redirections, pipes, and wildcards for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/" class="active">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/shell/">Shell</a></li>
+          <li><span aria-current="page">Shell 00</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>Shell 00 — Unix Basics</h1>
+        <p>Shell 00 is your introduction to the Unix command line. You will learn how to navigate the filesystem, manipulate files and directories, manage permissions, use redirections and pipes, and work with wildcards. These skills are essential for every subsequent Piscine module and exam.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="tag-group">
+          <span class="tag">Navigation</span>
+          <span class="tag">File Operations</span>
+          <span class="tag">Permissions</span>
+          <span class="tag">Redirections</span>
+          <span class="tag">Pipes</span>
+          <span class="tag">Wildcards</span>
+          <span class="tag">Environment</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/10 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('shell00')" style="margin-bottom:1rem;">Reset progress</button>
+        <ol class="exercise-list">
+          <li><div><span class="ex-name">ex00: Z</span><br><span class="ex-desc">Create a file that displays "Z"</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex01: testShell00</span><br><span class="ex-desc">Create a file with specific properties (size, permissions, timestamp)</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex02: Oh yeah, moooore</span><br><span class="ex-desc">Use file display commands to show specific content</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex03: SSH me</span><br><span class="ex-desc">Generate and configure an SSH key pair</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex04: midLS</span><br><span class="ex-desc">Use ls with specific flags for custom output</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex05: GiT commit</span><br><span class="ex-desc">List Git commit logs in a specific format</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex06: gitignore</span><br><span class="ex-desc">Create Git ignore rules for specific file patterns</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex07: diff</span><br><span class="ex-desc">Create a patch file from a diff between two files</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex08: clean</span><br><span class="ex-desc">Write a script to clean temporary files</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+          <li><div><span class="ex-name">ex09: Illusions</span><br><span class="ex-desc">Create a magic file for the file command</span></div><button class="ex-check" aria-label="Mark complete"></button></li>
+        </ol>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul>
+          <li><strong>Permissions:</strong> Understanding octal (e.g., <code>chmod 644</code>) vs symbolic (<code>chmod u+r</code>) modes. The <code>testShell00</code> exercise requires exact permissions.</li>
+          <li><strong>Hidden files:</strong> Files starting with <code>.</code> are hidden. Use <code>ls -a</code> to see them. Some exercises expect hidden files.</li>
+          <li><strong>ls flags:</strong> Memorize <code>-l</code>, <code>-a</code>, <code>-R</code>, <code>-t</code>, <code>-r</code>, <code>-S</code>. The <code>midLS</code> exercise requires a specific combination.</li>
+          <li><strong>Patch format:</strong> <code>diff -c</code> or <code>diff -u</code> produce different patch formats. Make sure you use the expected format.</li>
+          <li><strong>Magic file syntax:</strong> The <code>file</code> command uses a specific magic file format — offset, type, and expected bytes. Study <code>man magic</code>.</li>
+          <li><strong>SSH keys:</strong> Use <code>ssh-keygen -t rsa -b 4096</code>. The public key goes in <code>~/.ssh/authorized_keys</code>.</li>
+          <li><strong>Git exercises:</strong> You need an initialized Git repository in your home directory for <code>ex05</code> and <code>ex06</code>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Shell 01</h3>
+            <p>Continue with shell scripting: variables, conditionals, loops, and environment manipulation.</p>
+            <a href="/shell/shell01.html" class="btn btn-sm btn-outline">View Module</a>
+          </div>
+          <div class="card">
+            <h3>Exam 00 Prep</h3>
+            <p>Shell-based exam exercises at level 0–3. Practice commands, scripts, and permissions under time pressure.</p>
+            <a href="/exams/exam00.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>Resources</h3>
+            <p>Cheatsheets, command references, and guides for Unix, Git, and Norminette.</p>
+            <a href="/resources/" class="btn btn-sm btn-outline">Browse Resources</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('shell00',10);});</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 11 — Function Pointers — 1337 Piscine Prep</title>
+  <meta name="description" content="C 11 module: function pointers, callbacks, ft_foreach, ft_map, ft_any, ft_count_if, ft_is_sort, do-op, ft_advanced_sort_string_tab for 1337 Piscine.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/" class="active">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/c-days/">C Days</a></li>
+          <li><span aria-current="page">C 11</span></li>
+        </ol>
+      </nav>
+
+      <section class="section-header">
+        <h1>C 11 — Function Pointers</h1>
+        <p>C 11 introduces function pointers — a powerful feature that enables callback-based programming. You will implement higher-order functions like <code>foreach</code>, <code>map</code>, <code>any</code>, <code>count_if</code>, and <code>is_sort</code>, build a calculator (<code>do-op</code>), and write an advanced string sort using comparator callbacks.</p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Concepts Covered</h2>
+        <div class="concept-list">
+          <span class="tag">Function Pointers</span>
+          <span class="tag">Callback Functions</span>
+          <span class="tag">foreach</span>
+          <span class="tag">map</span>
+          <span class="tag">sort</span>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Exercises</h2>
+        <div class="progress-bar">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-text">0/8 (0%)</span>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="resetProgress('c11')" style="margin-bottom:1rem;">Reset progress</button>
+        <ul class="exercise-list">
+          <li>
+            <div>
+              <span class="ex-name">ex00: ft_foreach</span><br>
+              <span class="ex-desc">Apply a function to each element of an integer array</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex01: ft_map</span><br>
+              <span class="ex-desc">Create a new array by applying a function to each element (allocates)</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex02: ft_any</span><br>
+              <span class="ex-desc">Check if any element in a string array satisfies a condition</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex03: ft_count_if</span><br>
+              <span class="ex-desc">Count elements in a string array that satisfy a condition</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex04: ft_is_sort</span><br>
+              <span class="ex-desc">Check if an integer array is sorted according to a comparison function</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex05: do-op (basic)</span><br>
+              <span class="ex-desc">Simple calculator using function pointers for each operation</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex06: do-op (advanced)</span><br>
+              <span class="ex-desc">Extended calculator with more operations and better error handling</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+          <li>
+            <div>
+              <span class="ex-name">ex07: ft_advanced_sort_string_tab</span><br>
+              <span class="ex-desc">Sort a string array using a custom comparison function pointer</span>
+            </div>
+            <button class="ex-check" aria-label="Mark complete"></button>
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Compile & Test</h2>
+        <pre><code># Test foreach
+gcc -Wall -Wextra -Werror -o test_foreach ex00/ft_foreach.c main.c
+
+# Test map
+gcc -Wall -Wextra -Werror -o test_map ex01/ft_map.c main.c
+
+# Test do-op
+gcc -Wall -Wextra -Werror -o do-op ex05/ft_do-op.c
+./do-op 42 + 10
+./do-op 42 / 0
+
+# Test advanced sort
+gcc -Wall -Wextra -Werror -o test_sort ex07/ft_advanced_sort_string_tab.c main.c</code></pre>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2>Common Pitfalls</h2>
+        <ul class="pitfall-list">
+          <li><strong>Function pointer syntax:</strong> <code>int (*f)(int, int)</code> is a pointer to a function returning int and taking two int params. Parentheses around <code>*f</code> are required.</li>
+          <li><strong>Callback return types:</strong> Ensure the callback function signature matches the function pointer type exactly, including return type and parameters.</li>
+          <li><strong>Array bounds in map:</strong> <code>ft_map</code> must allocate exactly the right size for the result array. Do not access beyond the array length.</li>
+          <li><strong>Sort stability:</strong> The sort algorithm should be stable for <code>ft_advanced_sort_string_tab</code>. Bubble sort or insertion sort are commonly used.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <div class="callout callout-info">
+          <p><strong>Peer Evaluation Tip:</strong> Verify that function pointer parameters use the correct syntax. Test <code>ft_map</code> with <code>valgrind</code> to ensure no memory leaks. For <code>do-op</code>, test division by zero and invalid operators. Check that <code>ft_is_sort</code> returns 1 for empty and single-element arrays.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Practice & Related Modules</h2>
+        <div class="card-grid card-grid-3">
+          <div class="card">
+            <h3>Exam 02</h3>
+            <p>Function pointer exercises appear in advanced level exam questions.</p>
+            <a href="/exams/exam02.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+          <div class="card">
+            <h3>C 12 — Linked Lists</h3>
+            <p>Apply function pointers to list operations like ft_list_foreach and ft_list_sort.</p>
+            <a href="/c-days/c12.html" class="btn btn-sm btn-outline">Next Module</a>
+          </div>
+          <div class="card">
+            <h3>Final Exam</h3>
+            <p>Function pointers and callbacks are commonly tested in the final exam.</p>
+            <a href="/exams/final.html" class="btn btn-sm btn-outline">Practice</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/resources/">Resources</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){initProgress('c11',8);});</script>
+</body>
+</html>

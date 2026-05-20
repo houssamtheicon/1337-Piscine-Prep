@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peer Evaluation Guide — 1337 Piscine Prep</title>
+  <meta name="description" content="Peer evaluation guide for 1337 Piscine: how to prepare, what evaluators look for, common questions, and defense tips.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="navbar-brand">
+        <span>1337 Piscine Prep</span>
+        <span class="badge">Unofficial</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shell/">Shell</a></li>
+        <li><a href="/c-days/">C Days</a></li>
+        <li><a href="/exams/">Exams</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/" class="active">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="search-toggle" aria-label="Toggle search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon-sun">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </span>
+          <span class="icon-moon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="searchOverlay" class="search-overlay"></div>
+  <div id="searchModal" class="search-modal" role="dialog" aria-label="Search">
+    <div class="search-modal-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search modules, exams, resources..." autocomplete="off" aria-label="Search query">
+      <span class="kbd">ESC</span>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <main id="main" class="main-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/resources/">Resources</a>
+        <span class="sep">/</span>
+        <span>Peer Evaluation</span>
+      </nav>
+
+      <div class="page-header">
+        <h1>Peer Evaluation Guide</h1>
+        <p>Peer evaluation is a core part of the 42/1337 pedagogy. You evaluate others and are evaluated by others. Understanding the process helps you succeed on both sides.</p>
+      </div>
+
+      <section class="module-section">
+        <h2>Overview of the Evaluation System</h2>
+        <p>Each project you submit must be evaluated by at least one peer. The evaluation is a live session where the evaluator reviews your code, runs tests, and asks questions. You receive a grade and written feedback. Similarly, you must evaluate other students' projects to earn evaluation points for your own submissions.</p>
+        <div class="callout callout-info">
+          <p><strong>Key point:</strong> You cannot pass the Piscine without completing peer evaluations. They are mandatory, not optional.</p>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Preparing for Evaluation</h2>
+        <div class="card">
+          <ul>
+            <li><strong>Check norminette:</strong> Run it before every submission. A norm error means an automatic failure.</li>
+            <li><strong>Check compilation:</strong> Your code must compile with <code>gcc -Wall -Wextra -Werror</code> without warnings or errors.</li>
+            <li><strong>Test edge cases:</strong> Think about what your evaluator might test and prepare your program for those inputs.</li>
+            <li><strong>Review your code:</strong> Be ready to explain every line. Understand why you wrote it that way.</li>
+            <li><strong>Have your Git history clean:</strong> Multiple commits with clear messages show good workflow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>What Evaluators Look For</h2>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>What Is Checked</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Norm compliance</td><td>No norminette errors in any file</td></tr>
+            <tr><td>Compilation</td><td>Compiles with -Wall -Wextra -Werror, no warnings</td></tr>
+            <tr><td>Functionality</td><td>Program produces correct output for all test cases</td></tr>
+            <tr><td>Error handling</td><td>Program handles invalid input gracefully</td></tr>
+            <tr><td>Code structure</td><td>Well-organized, logical function separation, meaningful names</td></tr>
+            <tr><td>Understanding</td><td>You can explain your code and justify design decisions</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="module-section">
+        <h2>How to Evaluate</h2>
+        <p>When you are the evaluator, your role is to be thorough and fair:</p>
+        <ol>
+          <li><strong>Read the subject first</strong> — understand what the project requires before looking at the code</li>
+          <li><strong>Check norminette</strong> — run it on every <code>.c</code> and <code>.h</code> file</li>
+          <li><strong>Compile with flags</strong> — use <code>gcc -Wall -Wextra -Werror</code></li>
+          <li><strong>Run the program</strong> — test with the given examples and your own test cases</li>
+          <li><strong>Read the code</strong> — look for logical errors, hardcoded values, memory leaks</li>
+          <li><strong>Ask questions</strong> — probe the student's understanding of key concepts</li>
+          <li><strong>Give constructive feedback</strong> — explain what they did well and what can be improved</li>
+        </ol>
+      </section>
+
+      <section class="module-section">
+        <h2>Common Evaluation Questions per Module</h2>
+        <table>
+          <thead>
+            <tr><th>Module</th><th>Sample Questions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shell 00/01</td><td>How do permissions work? What does chmod 755 mean? Explain pipes and redirections.</td></tr>
+            <tr><td>C 00–04</td><td>Explain how your ft_atoi works. How does a pointer differ from a variable? What is a null terminator?</td></tr>
+            <tr><td>C 05–07</td><td>Explain recursion with your factorial function. How does malloc work? What happens if malloc fails?</td></tr>
+            <tr><td>C 08–09</td><td>Why use header guards? How does a Makefile work? What is an object file?</td></tr>
+            <tr><td>C 10–13</td><td>How do file descriptors work? Explain function pointers. How does a linked list differ from an array?</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="module-section">
+        <h2>Defense Tips</h2>
+        <div class="card">
+          <ul>
+            <li><strong>Explain your decisions:</strong> Say why you chose a particular approach, even if it is not perfect</li>
+            <li><strong>Acknowledge limitations:</strong> If you know your code has a flaw, admit it and explain what you would do differently</li>
+            <li><strong>Stay calm:</strong> If the evaluator finds a bug, take a breath and explain what might have caused it</li>
+            <li><strong>Do not get defensive:</strong> Feedback is meant to help you improve. Listen and ask clarifying questions</li>
+            <li><strong>Show what you learned:</strong> Even if the project is incomplete, demonstrating understanding of the concepts counts for something</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-section">
+        <h2>Professionalism and Communication</h2>
+        <p>Treat every evaluation as a professional interaction. Be on time, be respectful, and be prepared. When evaluating, be honest but kind. When being evaluated, be receptive and engaged. The students you evaluate today may be your evaluators tomorrow.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; 1337 Piscine Prep — unofficial community resource</span>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/rushes/">Rushes</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/subjects/">Subjects</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
